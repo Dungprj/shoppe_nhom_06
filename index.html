@@ -61,6 +61,7 @@
     .image-carousel__item-list-wrapper {
       height: 100%;
       overflow: hidden;
+      visibility: visible;
       
 
 
@@ -77,6 +78,7 @@
       flex-wrap: wrap;
       margin-bottom: 0px;
       transition: all 500ms ease 0s;
+      visibility: visible;
 
       
     }
@@ -93,6 +95,7 @@
       border-bottom: 1px solid rgba(0,0,0,.05);
       transition: border-color 0.3s ease;
       position: relative;
+      visibility: visible;
       
       
       
@@ -155,7 +158,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      visibility: visible;
+      visibility: hidden;
     }
     .image-carousel__item a
     {
@@ -624,11 +627,11 @@
   
           </div>
 
-          <div class="arrow-prev" >
+          <div class="arrow-prev" contenteditable="false">
             <i class="fa-solid fa-arrow-left"></i>
 
           </div>
-          <div class="arrow-next" >
+          <div class="arrow-next" contenteditable="false">
             <i class="fa-solid fa-arrow-right"></i>
 
           </div>
@@ -651,10 +654,17 @@
 </body>
 <script>
 
+  
   function next()
   {
     x = document.querySelector(".image-carousel__item-list");
-    x.style.transform = "translate(-550px,0px)";
+    x.style.transform = "translate(-550px,0px)";  
+    status_next = false;
+
+    document.querySelector(".arrow-next").style.visibility=  "hidden";
+
+    y = document.querySelector(".arrow-prev");
+    y.style.visibility=  "visible"; 
 
   }
   function prev()
@@ -662,7 +672,15 @@
     x = document.querySelector(".image-carousel__item-list");
     x.style.transform = "translate(0px,0px)";
 
+    document.querySelector(".arrow-prev").style.visibility=  "hidden";
+
+    y = document.querySelector(".arrow-next");
+    y.style.visibility=  "visible"; 
+
+
   }
+
+  
 
   bt_next = document.querySelector(".arrow-next");
   bt_next.addEventListener("click", next);
