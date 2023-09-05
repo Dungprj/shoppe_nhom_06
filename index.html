@@ -1,39 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="./fontawesome-free-6.4.2-web/fontawesome-free-6.4.2-web/css/all.css"
+    />
+    <link rel="stylesheet" href="./fontawesome-free-6.4.2-web/fontawesome-free-6.4.2-web/css/reset.css">
+    <title>Document</title>
+    <style>
+      .image_carousel {
+        width: 100%;
+        height: 100%;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="./fontawesome-free-6.4.2-web/fontawesome-free-6.4.2-web/css/all.css">
-  <link rel="stylesheet" href="style.css">
-  
-  <title>Document</title>
-  <style>
+      .container {
+      }
 
+      .bl_header {
+        height: 130px;
+      }
 
+      .bl_title {
+        height: 302px;
+        padding: 0 0;
+      }
 
+      .title {
+        height: 60px;
 
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
 
+      .content_title {
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.54);
+        font-weight: 500;
+      }
 
+      .section_content_header {
+        display: block;
+        position: relative !important;
+      }
 
+      .image_carousel {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
 
+      .image-carousel__item-list-wrapper {
+        height: 100%;
+        overflow: hidden;
+        visibility: visible;
+      }
 
-  </style>
-</head>
+      .image-carousel__item-list {
+        padding: 0px 0px;
+        list-style-type: none;
+        width: 150%;
+        transform: translateX(0px, 0px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 0px;
+        transition: all 500ms ease 0s;
+        visibility: visible;
+      }
 
+      .image-carousel__item {
+      }
 
+      .block_item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        transition: border-color 0.3s ease;
+        position: relative;
+        visibility: visible;
+      }
+
+      .edit_image {
+        width: 70%;
+      }
+      .bl_image {
+        padding-top: 5px;
+      }
+      .block_item {
+        padding: 5px 5px 5px 5px;
+        width: 120px;
+        height: 151px;
+        float: none;
+      }
+      .bl_image {
+        display: flex;
+        justify-content: center;
+      }
+      .edit_text {
+        height: 50px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 10px;
+      }
+      .arrow-next {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        position: absolute;
+        top: 45%;
+        right: -15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: visible;
+      }
+      .arrow-prev {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        position: absolute;
+        top: 45%;
+        left: -15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+      }
+      .image-carousel__item a {
+        text-decoration: none;
+        color: #212529;
+      }
+
+      .block_item:hover {
+        border-right: 1px solid rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 0.8125rem 0 rgba(0, 0, 0, 0.05);
+      }
+      .arrow-next:hover {
+        transform: scale(1.8);
+        box-shadow: 0 0 0.8125rem 0 rgba(0, 0, 0, 0.2);
+      }
+      .arrow-prev:hover {
+        transform: scale(1.8);
+        box-shadow: 0 0 0.8125rem 0 rgba(0, 0, 0, 0.2);
+      }
+      i.fa-arrow-right {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .header {
+        padding-top: 9px;
+        background-color: #f7462e;
+        position: fixed;
+        padding-bottom: 15px;
+        width: 100%;
+        z-index: 1;
+      }
+
+      .header-connect {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .header .header-connect__left {
+        display: flex;
+        list-style-type: none;
+        text-decoration: none;
+      }
+
+      .header .header-connect__left li {
+        border-right: 1px solid #ccc;
+        padding: 0 6px;
+      }
+
+      .header .header-connect__left li:nth-child(4), .header .header-connect__left li:nth-child(5), .header .header-connect__left li:nth-child(6) {
+        border: none;
+      }
+
+      .header .header-connect__right {
+        display: flex;
+        list-style-type: none;
+        text-decoration: none;
+      }
+
+      .header .header-connect__right li {
+        padding: 0 6px;
+      }
+
+      .header .header-connect__right li:nth-child(8) {
+        border-right: 1px solid #ccc;
+      }
+
+      .header a{
+        color: #fff;
+        text-decoration: none;       
+      }      
+
+      .header-find {
+        align-items: center;
+        position: relative;
+        display: flex;
+        margin-top: 15px;
+      }
+
+      .header-find__input {
+        height: 48px;
+        width: 875px;
+      }
+
+      .header-find__icon {
+        left: 92.8%;
+        position: absolute;
+        color: #fff;
+        background-color: #fb5533;
+        padding: 11px 18px;
+        border-radius: 3px;
+      }
+
+      .header-shop__iconwrapper {
+        color: #fff;
+      }
+
+      .header-shop__icon {
+        margin-left: 30px;
+        font-size: 26px;
+      }
+
+      .header-items {
+        position: relative;
+        white-space: nowrap;
+      }
+
+      .header-items__wrapper {
+        margin-top: 9px;
+        display: flex;
+      }
+
+      .header-items__wrapper li {
+        text-align: center;
+        margin-right: 9px;
+        padding: 0;
+        font-size: 14px;
+        max-width: 100%;
+      }
+
+      .header-items__wrapper li:first-child {
+        padding: 0;
+        margin: 0;
+      }
+
+      .header-items__wrapper li:last-child {
+        padding: 0;
+        margin: 0;
+      }
+
+      .banner-slider {
+        position: relative;
+        padding-top: 170px;
+      }
+      
+      .banner-slider .banner-slider__left {
+        position: absolute;
+        width: 67%;
+      }
+
+      .banner-slider .banner-slider__left li {
+        object-fit: cover;
+      }
+
+      .banner-slider .banner-slider__right {     
+        left: 69%;
+        position: absolute;
+      }
+
+      .banner-slider .banner-slider__right img {
+        object-fit: contain;
+        width: 106%;
+      }
+
+      .deal-icon {
+        width: 100%;
+        background-color: orange;
+        margin-top: 250px;
+      }
+
+      .deal-icon .deal-icon__wrapper {
+        padding: 18px 0px;
+        display: flex;
+        
+      }
+
+      .deal-icon .deal-icon__item {
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+      }
+
+      .deal-icon .deal-icon__item img {
+        width: 45px;
+      }
+
+      .deal-icon .deal-icon__item p {
+        margin-top: 5px;
+        font-weight: 400;
+        font-size: 0.825rem;
+      }
+
+    </style>
+  </head>
 
 <body>
   <div class="fluid-container">
+
+    <div class="header">
+      <div class="container header-connect">
+        <ul class="header-connect__left">
+          <li><a href="#!">Kênh Người Bán</a></li>
+          <li><a href="#!">Trở thành Người bán Shopee</a></li>
+          <li><a href="#!">Tải ứng dụng</a></li>
+          <li><a href="#!">Kết nối</a></li>
+          <li><a href="#!"><i class="fa-brands fa-facebook header-facebook__icon"></i></a></li>
+          <li><a href="#!"><i class="fa-brands fa-instagram header-instagram__icon"></i></a></li>
+        </ul>
+        <ul class="header-connect__right">
+          <li><a href="#!"><i class="fa-regular fa-bell"></i></a></li>
+          <li><a href="#!">Thông Báo</a></li>
+          <li><a href="#!"><i class="fa-solid fa-question"></i></a></li>
+          <li><a href="#!">Hỗ Trợ</a></li>
+          <li><a href="#!"><i class="fa-solid fa-globe"></i></a></li>
+          <li><a href="#!">Tiếng Việt</a></li>
+          <li><a href="#!"><i class="fa-solid fa-chevron-down"></i></a></li>
+          <li><a href="#!">Đăng Ký</i></a></li>
+          <li><a href="#!">Đăng Nhập</i></a></li>
+        </ul> 
+      </div>
+    </div>
+
+    <div class="container header-find">
+      <div class="header-find__img"><img src="./img/shopee_logo.png" alt="shopee_logo" style="width: 200px; "></div>
+      <div class="header-search__box">
+        <div class="header-find">
+          <input class="form-control header-find__input" type="text" placeholder="Shopee bao ship 0Đ - Đăng ký ngay!">
+          <i class="fa-solid fa-magnifying-glass header-find__icon"></i>
+        </div>
+        <div class="row header-items">
+          <ul class="header-items__wrapper">
+            <li class="col-1">iPhone 1k</li>
+            <li class="col-1">Đồ 1k</li>
+            <li class="col-1">Ốp iPhone</li>
+            <li class="col-1">Áo Thun</li>
+            <li class="col-1">Túi Xách Nữ</li>
+            <li class="col-1">Áo Khoác Dù</li>
+            <li class="col-1">Áo Phông Nam</li>
+            <li class="col-1">Dép Quai Hậu Nữ</li>
+            <li class="col-1">Bình Giữ Nhiệt</li>
+            <li class="col-1">Quần</li>
+            <li class="col-1">Vòng Tay</li>
+          </ul>
+        </div>
+      </div>
+      <div class="header-shop__iconwrapper">
+        <i class="fa-solid fa-cart-shopping header-shop__icon"></i>
+      </div>
+      <div class="arrow-next" contenteditable="false">
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </div>
+
     <div class="container bl_title">
       <div class="title">
         <div class="content_titlte">DANH MỤC</div>
-
-
       </div>
       <div class="section_content_header">
         <div class="image_carousel">
@@ -48,12 +402,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Thời Trang Nam</div>
                     </div>
-
-
                   </div>
-
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -64,11 +414,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Điện Thoại & Phụ Kiện</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -79,11 +426,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Thiết Bị Điện Tử</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -94,11 +438,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Máy Tính & Laptop</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -109,13 +450,9 @@
                     <div class="image_txt">
                       <div class="edit_text">Máy Ảnh & Máy Quay Phim</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
-
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
                   <div class="block_item">
@@ -125,11 +462,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Đồng Hồ</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -140,11 +474,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Giày Dép Nam</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -155,11 +486,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Thiết Bị Điện Gia Dụng</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -170,11 +498,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Thể Thao & Du Lịch</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -185,11 +510,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Ô Tô & Xe Máy & Xe Đạp</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -200,11 +522,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Balo & Túi Ví Nam</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -215,11 +534,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Đồ Chơi</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -230,11 +546,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Chăm Sóc Thú Cưng</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -245,11 +558,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Dụng cụ và thiết bị tiện ích</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -260,11 +570,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Thời Trang Nữ</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -275,11 +582,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Mẹ & Bé</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -290,11 +594,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Nhà Cửa & Đời Sống</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -305,11 +606,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Sắc Đẹp</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -320,11 +618,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Sức Khỏe</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -335,11 +630,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Giày Dép Nữ</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -350,11 +642,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Túi Ví Nữ</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -365,11 +654,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Phụ Kiện & Trang Sức Nữ</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -380,11 +666,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Bách Hóa Online</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -395,11 +678,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Nhà Sách Online</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -410,11 +690,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Thời Trang Trẻ Em</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -425,11 +702,8 @@
                     <div class="image_txt">
                       <div class="edit_text">Giặt Giũ & Chăm Sóc Nhà Cửa</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
               <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
@@ -440,30 +714,12 @@
                     <div class="image_txt">
                       <div class="edit_text">Voucher & Dịch Vụ</div>
                     </div>
-
-
                   </div>
                 </a>
-
               </li>
-
-
-
-
             </ul>
 
-          </div>
-
-          <div class="arrow-prev" contenteditable="false">
-            <i class="fa-solid fa-arrow-left"></i>
-
-          </div>
-          <div class="arrow-next" contenteditable="false">
-            <i class="fa-solid fa-arrow-right"></i>
-
-          </div>
-
-        </div>
+        
       </div>
 
 
@@ -1003,9 +1259,547 @@
         </div>
       </div>
 
+      <div class="container banner-slider">
+        <div class="banner-slider__wrapper">
+          <div class="banner-slider__left">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100" src="./img/slide-1.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="./img/slide-2.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="./img/slide-3.jpg" alt="Third slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="banner-slider__right">
+            <div class="banner-first">
+              <img src="./img/slide-right-1.jpg" alt="">
+            </div>
+            <div class="banner-second">
+              <img src="./img/slide-right-2.jpg" alt="">
+            </div>
+          </div>
+        </div>       
+      </div>
 
       
+      <div class="container deal-icon">
+        <ul class="deal-icon__wrapper">
+          <li class="deal-icon__item">
+            <img src="./img/uu_dai-1.png" alt="">
+            <p>Khung Giờ Săn Sale </p>
+          </li>
+          <li class="deal-icon__item">
+            <img src="./img/uu_dai-2.png" alt="">
+            <p>Miễn Phí Ship - Có Shopee </p>
+          </li>
+          <li class="deal-icon__item">
+            <img src="./img/uu_dai-3.png" alt="">
+            <p>Voucher Giảm Đến 500.000Đ </p>
+          </li>
+          <li class="deal-icon__item">
+            <img src="./img/uu_dai-4.png" alt="">
+            <p>Hàng Hiệu Outlet Giảm 50% </p>
+          </li>
+          <li class="deal-icon__item">
+            <img src="./img/uu_dai-5.png" alt="">
+            <p>Mã Giảm Giá </p>
+          </li>
+          <li class="deal-icon__item">
+            <img src="./img/uu_dai-6.png" alt="">
+            <p>Gì Cũng Rẻ - Deal Sốc 9.000Đ </p>
+          </li>
+          <li class="deal-icon__item">
+            <img src="./img/uu_dai-7.png" alt="">
+            <p>Nạp Thẻ, Dịch Vụ & Data </p>
+          </li>
+          <li class="deal-icon__item">
+            <img src="./img/uu_dai-8.png" alt="">
+            <p>Hàng Quốc Tế </p>
+          </li>
+          <li class="deal-icon__item">
+            <img src="./img/uu_dai-9.png" alt="">
+            <p>Bắt Trend - Giá Sốc</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container bl_title" style="margin-top: 180px;">
+        <div class="title">
+          <div class="content_titlte">DANH MỤC</div>
+        </div>
+        <div class="section_content_header">
+          <div class="image_carousel">
+            <div class="image-carousel__item-list-wrapper">
+              <ul class="image-carousel__item-list">
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img class="edit_image" src="./img/ao.png" alt="" />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Thời Trang Nam</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img class="edit_image" src="./img/phone.png" alt="" />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Điện Thoại & Phụ Kiện</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/thiet_bi_dien_tu.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Thiết Bị Điện Tử</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/may_tinh_lap_top.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Máy Tính & Laptop</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/may_anh.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Máy Ảnh & Máy Quay Phim</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href=""
+                    ><div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/dong_ho.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Đồng Hồ</div>
+                      </div>
+                    </div></a
+                  >
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/giay_dep.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Giày Dép Nam</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/thiet_bi_dien_tu.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Thiết Bị Điện Gia Dụng</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/the_thao.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Thể Thao & Du Lịch</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/o_to_xe_may.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Ô Tô & Xe Máy & Xe Đạp</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img class="edit_image" src="./img/ba_lo.png" alt="" />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Balo & Túi Ví Nam</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/do_choi.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Đồ Chơi</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/cham_soc_thu_cung.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Chăm Sóc Thú Cưng</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/dung_cu.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">
+                          Dụng cụ và thiết bị tiện ích
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/thoi_trang_nu.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Thời Trang Nữ</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/me_va_be.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Mẹ & Bé</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/nha_cua_doi_song.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Nhà Cửa & Đời Sống</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/sac_dep.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Sắc Đẹp</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/sac_dep.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Sức Khỏe</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/giay_dep_nu.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Giày Dép Nữ</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/tui_vi_nu.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Túi Ví Nữ</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/phu_kien_va_trang_suc.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Phụ Kiện & Trang Sức Nữ</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/bach_hoa_online.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Bách Hóa Online</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/nha_sach_online.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Nhà Sách Online</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/thoi_trang_tre_em.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Thời Trang Trẻ Em</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/giat_giu.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Giặt Giũ & Chăm Sóc Nhà Cửa</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="image-carousel__item">
+                  <a class="bl_a_item" href="">
+                    <div class="block_item">
+                      <div class="bl_image">
+                        <img
+                          class="edit_image"
+                          src="./img/voucher.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="image_txt">
+                        <div class="edit_text">Voucher & Dịch Vụ</div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="arrow-prev" contenteditable="false">
+              <i class="fa-solid fa-arrow-left"></i>
+            </div>
+            <div class="arrow-next" contenteditable="false">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </body>
+  <script>
+    function next() {
+      x = document.querySelector(".image-carousel__item-list");
+      x.style.transform = "translate(-550px,0px)";
+      status_next = false;
+
+
+      y = document.querySelector(".arrow-prev");
+      y.style.visibility = "visible";
+    }
+    function prev() {
+      x = document.querySelector(".image-carousel__item-list");
+      x.style.transform = "translate(0px,0px)";
 
 
 
@@ -1013,13 +1807,17 @@
 
 
 
+      y = document.querySelector(".arrow-next");
+      y.style.visibility = "visible";
+    }
+
+    bt_next = document.querySelector(".arrow-next");
+    bt_next.addEventListener("click", next);
 
 
-
-
-
-
-</body>
+    bt_prev = document.querySelector(".arrow-prev");
+    bt_prev.addEventListener("click", prev);
+  </script>
 <script src="./main.js"></script>
 
 </html>
