@@ -215,11 +215,23 @@ body {
   {
     margin-top: 30px;
   }
+  .title_flash_sale
+  {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
 
   .edit_image_flash_sale {
     width: 98% !important;
 }
-
+.xem_tat_ca{
+  
+  position:absolute;
+  right: 0px;
+  top :35%;
+  
+}
   
   .block_item_flash_sale
   {
