@@ -1,0 +1,347 @@
+.PhanCuoi {
+    min-width: 75rem;
+    border-top: 4px solid #ee4d2d;
+    background-color: #fff;
+    color: rgba(0,0,0,.54)
+}
+.Vien_Do {
+    border-top-color: #ee4d2d
+}
+.DeMuc_SanPham {
+    width: 75rem;
+    margin: 3.75rem auto .625rem;
+    padding-bottom: 3.75rem
+}
+.ChieuCao_Chu {
+    font-weight: 700
+}
+.Can_DanhMuc {
+    display: flex
+}
+.Can_DanhMuc {
+    margin: 0 -.3125rem
+}
+.KhungLon_DanhMuc {
+    width: 20%;
+    padding: .3125rem;
+    box-sizing: border-box
+}
+.KhungNho_DanhMuc {
+    font-size: .75rem
+}
+.KhungTen_DanhMuc {
+    font-weight: 700;
+    margin: .625rem 0 .125rem;
+    padding: .125rem 0;
+    text-transform: uppercase
+}
+
+.Ten_DanhMuc,.KhungTen_DanhMuc {
+    color: rgba(0,0,0,.54)
+}
+.Ten_DanhMuc {
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.Ten_DanhMuc:hover {
+    color: #ee4d2d
+}
+.KhungSP_DanhMuc {
+    width: 100%;
+    margin-bottom: .625rem;
+    line-height: 1.5
+}
+.KhungSP_DanhMuc {
+    display: flex;
+    flex-wrap: wrap
+}
+.SP_DanhMuc {
+    text-decoration: none;
+    color: rgba(0,0,0,.54);
+    display: inline-block
+}
+
+.SP_DanhMuc:hover {
+    color: #ee4d2d
+}
+
+
+/* ____________________________ */
+
+
+.Footer_Shopee {
+    background-color: #fbfbfb
+}
+
+.PhuLuc_QG {
+    width: 75rem;
+    margin: auto
+}
+
+.PhuLuc {
+    align-items: flex-start
+}
+
+.PhuLuc {
+    display: flex;
+    margin: 0 -.3125rem;
+    padding: .3125rem;
+    width: 100%;
+    min-width: 1200px
+}
+
+.ThanhPhan_PL {
+    width: 15.625rem;
+    padding: .3125rem;
+    box-sizing: border-box
+}
+
+.ThanhPhan_PL:first-child:nth-last-child(6),.ThanhPhan_PL:first-child:nth-last-child(6)~.ThanhPhan_PL,.ThanhPhan_PL:last-child {
+    width: 12.5rem
+}
+
+.TieuDe_PL {
+    font-size: .75rem;
+    font-weight: 700;
+    color: rgba(0,0,0,.87);
+    margin-bottom: 1.25rem;
+    margin-top: 2.5rem
+}
+
+.DanhSachTP_PL {
+    text-decoration: none;
+    display: block;
+    color: rgba(0,0,0,.65);
+    list-style-type: none;
+    margin: 0 0 1rem;
+    padding: 0
+}
+
+.TP_PL {
+    font-size: .75rem;
+    margin-bottom: .75rem
+}
+
+.Link_PL,.TP_PL {
+    align-content: center;
+    display: flex
+}
+
+.Link_PL {
+    text-decoration: none;
+    color: rgba(0,0,0,.65);
+    overflow: hidden
+}
+
+.Link_PL:hover {
+    color: #ee4d2d
+}
+
+.TenTP_PL {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+.DanhSachAnh_PL {
+    flex-wrap: wrap
+}
+
+.DanhSachAnh_PL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 1rem
+}
+.LinkAnh_PL,.DanhSachAnh_PL,.TPAnh_PL{
+    display: flex
+}
+.LinkAnh_PL,.TPAnh_PL{
+    align-items: center
+}
+.LinkAnh_PL,.TPAnh_PL{
+    justify-content: center
+}
+.Icon_PL {
+    height: 1rem;
+    width: 1rem;
+    margin-right: .5rem
+}
+.LinkDownLoad_PL {
+    flex-direction: row
+}
+.LinkDownLoad_PL:hover {
+    cursor: pointer
+}
+.LinkDownLoad_PL {
+    width: 100%;
+    margin-bottom: 1rem
+}
+.LinkDownLoad_PL,.App_PL {
+    display: flex
+}
+.QRCode_PL {
+    height: 5rem;
+    width: 5rem;
+    margin-right: .75rem;
+    padding: .25rem;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    border-radius: 2px
+}
+.DanhSachApp_PL {
+    width: 4.75rem;
+    display: inline-block;
+    vertical-align: top
+}
+.App_PL {
+    align-items: center
+}
+.App_PL {
+    justify-content: center
+}
+.App_PL {
+    width: 4.25rem;
+    height: 1rem;
+    margin-bottom: .5rem;
+    padding: .25rem;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    border-radius: 2px
+}
+.App_PL:last-child {
+    margin-bottom: 0
+}
+
+.App_PL img {
+    max-height: 100%;
+    max-width: 100%
+}
+.KhungQuyen_QG {
+    align-items: flex-start
+}
+.KhungQuyen_QG {
+    justify-content: space-between;
+    color: rgba(0,0,0,.54);
+    padding: 2.5rem 0;
+    border-top: 1px solid rgba(0,0,0,.1)
+}
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution:2dppx) {
+    .KhungQuyen_QG {
+        border-top:.5px solid rgba(0,0,0,.1)
+    }
+}
+.DanhSach_QG,.KhungQuyen_QG {
+    display: flex;
+    flex-wrap: wrap
+}
+.DanhSach_QG {
+    justify-content: center
+}
+.QuyenShopee {
+    flex-shrink: 0;
+    margin-right: 25px;
+}
+.Cachdong {
+    line-height: 1.125rem
+}
+
+.TieuDe_QG {
+    flex: 1 0 auto;
+    text-align: right
+}
+.Khung_QG {
+    padding: 0 5px
+}
+.Khung_QG:not(:last-child) {
+    border-right: 1px solid rgba(0,0,0,.2)
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution:2dppx) {
+    .Khung_QG:not(:last-child) {
+        border-right:.5px solid rgba(0,0,0,.2)
+    }
+}
+.Ten_QG {
+    text-decoration: none;
+    color: rgba(0,0,0,.54)
+}
+
+/* ______________________________________ */
+.CS_TT {
+    font-size: .75rem;
+    color: rgba(0,0,0,.65);
+    padding: 2.625rem 0 2.3125rem;
+    background: #f5f5f5
+}
+.Khung_CS_TT {
+    width: 75rem;
+    margin: 0 auto
+}
+.Chinh_Sach {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.5rem
+}
+.TT_ChinhSach {
+    padding: 0 1.5625rem;
+    border-right: 1px solid rgba(0,0,0,.09);
+    text-transform: uppercase;
+    font-size: .75rem
+}
+
+.TT_ChinhSach:last-child {
+    border: 0
+}
+.Ten_Chinh_Sach {
+    text-decoration: none;
+    display: block;
+    color: rgba(0,0,0,.54)
+}
+.Logo_ChungNhan {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 0
+}
+.Logo_ChinhSach {
+    text-decoration: none;
+    color: rgba(0,0,0,.8);
+    margin: 0 1.25rem
+}
+.Dia_Chi {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: .5rem
+}
+.Can_DiaChi {
+    margin-bottom: 1.5625rem
+}
+.LinkAnh_PL,.TPAnh_PL {
+    align-items: center
+}
+
+.LinkAnh_PL,.DanhSachAnh_PL,.TPAnh_PL {
+    display: flex
+}
+.LinkAnh_PL,.TPAnh_PL {
+    justify-content: center
+}
+.TPAnh_PL {
+    width: 3.75rem;
+    height: 1.875rem;
+    margin-bottom: .5rem;
+    margin-right: .5rem;
+    padding: .25rem;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: .125rem
+}
+.CoChu_Footer{
+    font-size: .875rem;
+}
