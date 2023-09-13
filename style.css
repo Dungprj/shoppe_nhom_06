@@ -583,6 +583,10 @@ a {
       color: #ffffff;
       font-size: 10px;
       margin-right: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     
   }
 
   .flash_sale_ic {
@@ -590,6 +594,8 @@ a {
       border: 1px solid #ee4d2d;
       font-size: 10px;
       margin-right: 2px;
+      line-height: 13px;
+      
 
   }
 
