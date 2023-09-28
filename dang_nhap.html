@@ -12,6 +12,7 @@
       href="./fontawesome-free-6.4.2-web/fontawesome-free-6.4.2-web/css/reset.css"
     />
     <link rel="stylesheet" href="./dang_ky.css" />
+    <link rel="stylesheet" href="./dang_nhap.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -20,7 +21,7 @@
       referrerpolicy="no-referrer"
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Đăng Ký</title>
+    <title>Đăng Nhập</title>
   </head>
   <body>
     <div>
@@ -31,7 +32,7 @@
             src="./img/shopee-logo__dangky.png"
             alt="logo"
           />
-          <h2 class="dang-ky__heading">Đăng ký</h2>
+          <h2 class="dang-ky__heading">Đăng nhập</h2>
         </div>
         <div class="dang-ky__right">
           <p>Bạn cần giúp đỡ ?</p>
@@ -44,16 +45,27 @@
           </div>
         </div>
         <div class="container dang-ky__form">
-          <h4 class="form_heading">Đăng Ký</h4>
+          <h4 class="form_heading">Đăng nhập</h4>
           <input
             class="form-input__phone"
             type="text"
-            placeholder="Số điện thoại"
+            placeholder="Email / Số điện thoại / Tên đăng nhập"
             id="fname"
             name="fname"
           />
           <br />
-          <button class="form-input__btn">TIẾP THEO</button>
+          <input
+            class="form-input__password"
+            type="text"
+            placeholder="Mật khẩu"
+            id="fname"
+            name="fname"
+          />
+          <button class="form-input__btn">ĐĂNG NHẬP</button>
+          <div class="form-convenient">
+            <a class="form-convenient__text" href="#!">Quên mật khẩu</a>
+            <a class="form-convenient__text" href="#!">Đăng nhập với SMS</a>
+          </div>
           <div class="form-input__social">
             <div class="form-social__fb">
               <i class="fa-brands fa-facebook"></i>
@@ -64,14 +76,8 @@
               <span>Google</span>
             </div>
           </div>
-          <div class="form-des">
-            Bằng việc đăng kí, bạn đã đồng ý với Shopee về <br>
-            <a class="form-des__text" href="#!">Điều Khoản dịch vụ</a> &
-            <a class="form-des__text" href="#!">Chính sách bảo mật</a>
-          </div>
-          <div class="form-dangnhap">
-            Bạn đã có tài khoản?
-            <a class="form-des__text" href="#!">Đăng nhập</a>
+          <div class="form-des__input">
+            <p>Bạn mới biết đến Shopee? <a class="form-des__text" href="#!">Đăng ký</a> </p>
           </div>
         </div>
       </div>
