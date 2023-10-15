@@ -11,8 +11,6 @@ body {
 .container {
 }
 
-
-
 /* Header */
 
 .header {
@@ -50,7 +48,7 @@ body {
 .header .header-connect__right {
   display: flex;
   list-style-type: none;
-  text-decoration: none;
+  text-decoration: none;  
 }
 
 .header .header-connect__right li {
@@ -101,13 +99,6 @@ body {
   position: relative;
   white-space: nowrap;
 }
-
-
-
-
-
-
-
 
 .header-items__wrapper {
   margin-top: 9px;
@@ -603,7 +594,7 @@ i.fa-arrow-right {
   position: absolute;
   top: 48.5%;
   left: 35%;
-  z-index: 1000;
+  z-index: 1;
   background-color: #ccc;
   border-radius: 50%;
   padding: 10px;
@@ -623,7 +614,7 @@ i.fa-arrow-right {
   position: absolute;
   top: 48.5%;
   left: 98.5%;
-  z-index: 1000;
+  z-index: 1;
   background-color: #fff;
   border-radius: 50%;
   padding: 10px;
