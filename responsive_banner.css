@@ -2,22 +2,21 @@
   .banner-slider {
     padding-top: 180px;
   }
-  
-  
+
   .banner-slider__left img {
     width: 100%;
     height: 223px;
   }
 
-
   .banner-slider .banner-slider__right img {
     width: 330px;
   }
-  .image-carousel__item-list{
+  .image-carousel__item-list {
     width: 180%;
   }
 
-  .arrow-prev, .arrow-next {
+  .arrow-prev,
+  .arrow-next {
     top: 45%;
   }
 
@@ -27,8 +26,57 @@
     position: relative;
   }
 
-  .bl_title {
-    margin-bottom: 90px;
+  .header-find__img {
+    /* margin-right: -10px; */
+    width: 100px;
+    display: inline-block;
+  }
+
+  .header-search__box {
+    width: 100%;
+  }
+
+  .header-find__input {
+    height: 48px;
+    width: 90%;
+    margin-right: -100px;
+  }
+
+  .header-find .header-find__img img {
+    width: 200%;
+  }
+
+  .header-find__icon {
+    left: 92.8%;
+    position: absolute;
+    color: #fff;
+    background-color: #fb5533;
+    padding: 11px 18px;
+    border-radius: 3px;
+  }
+
+  .header-shop__icon {
+    margin-right: 20px;
+    font-size: 26px;
+  }
+
+  .header-items {
+    position: absolute;
+    white-space: nowrap;
+    /* padding-top: 80px; */
+    left: 0;
+    display: inline;
+    margin-left: 23%;
+  }
+
+  .header {
+    padding-top: 9px;
+    background-color: #f7462e;
+    position: fixed;
+    padding-bottom: 15px;
+    width: 100%;
+    z-index: 2;
+    height: 160px;
   }
 }
 
@@ -42,18 +90,86 @@
     width: 100%;
     height: 223px;
   }
-  
-  .image-carousel__item-list{
+
+  .image-carousel__item-list {
     width: 234%;
   }
-
 
   .banner-slider .banner-slider__right img {
     width: 248px;
   }
 
-  .arrow-prev, .arrow-next {
+  .arrow-prev,
+  .arrow-next {
     top: 45%;
+  }
+
+  .shopee-mall__banner {
+    width: 100%;
+  }
+
+  .shopee-mall__bannerleft {
+    display: none;
+  }
+
+  .arrow-prev__shmall {
+    left: -15px;
+  }
+
+  .shopee-mall_corner {
+    font-size: 10px;
+  }
+
+  .header-find .header-find__img img {
+    width: 100%;
+  }
+
+  .header-find__img {
+    /* margin-right: -10px; */
+    width: 100px;
+    display: inline-block;
+  }
+
+  .header-search__box {
+    width: 100%;
+  }
+
+  .header-find__input {
+    margin-left: 80px;
+    height: 48px;
+    width: 90%;
+  }
+
+  .header-find .header-find__img img {
+    width: 200%;
+  }
+
+  .header-find__icon {
+    left: 89.8%;
+    position: absolute;
+    color: #fff;
+    background-color: #fb5533;
+    padding: 11px 18px;
+    border-radius: 3px;
+  }
+
+  .header-shop__icon {
+    margin-right: 20px;
+    font-size: 26px;
+  }
+
+  .header-items {
+    display: none;
+  }
+
+  .header {
+    padding-top: 9px;
+    background-color: #f7462e;
+    position: fixed;
+    padding-bottom: 15px;
+    width: 100%;
+    z-index: 2;
+    height: 160px;
   }
 }
 
@@ -66,8 +182,8 @@
   .banner-slider__left {
     display: none;
   }
-   
-  .image-carousel__item-list{
+
+  .image-carousel__item-list {
     width: 450%;
   }
 
@@ -78,12 +194,86 @@
 
   .banner-slider .banner-slider__right img {
     width: 540px;
-    object-fit:cover;
+    object-fit: cover;
     height: 135px;
   }
 
-  .arrow-prev, .arrow-next {
+  .arrow-prev,
+  .arrow-next {
     top: 45%;
   }
 
+  .shopee-mall__banner {
+    width: 165%;
+    overflow: hidden;
+    visibility: visible;
+  }
+
+  .shopee-mall__imagelist {
+    overflow: hidden;
+  }
+
+  .shopee-mall__bannerleft {
+    display: none;
+  }
+
+  .shopee-mall__bannerright {
+  }
+
+  .arrow-prev__shmall {
+    left: -15px;
+    z-index: 1;
+  }
+
+  .shmall-img {
+    width: 50%;
+  }
+
+  .header-find__img {
+    /* margin-right: -10px; */
+    width: 100px;
+    display: inline-block;
+  }
+
+  .header-search__box {
+    width: 100%;
+  }
+
+  .header-find__input {
+    margin-left: 70px;
+    height: 48px;
+    width: 90%;
+  }
+
+  .header-find .header-find__img img {
+    width: 200%;
+  }
+
+  .header-find__icon {
+    left: 85.8%;
+    position: absolute;
+    color: #fff;
+    background-color: #fb5533;
+    padding: 11px 18px;
+    border-radius: 3px;
+  }
+
+  .header-shop__icon {
+    margin-right: 20px;
+    font-size: 26px;
+  }
+
+  .header-items {
+    display: none;
+  }
+
+  .header {
+    padding-top: 9px;
+    background-color: #f7462e;
+    position: fixed;
+    padding-bottom: 15px;
+    width: 100%;
+    z-index: 2;
+    height: 180px;
+  }
 }
