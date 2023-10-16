@@ -552,11 +552,16 @@ i.fa-arrow-right {
   border-radius: 50%;
   color: #fff;
 }
+.lop_phu_right
+{
+  position: relative;
+  
+}
 
 .shopee-mall__banner {
   display: flex;
   padding-top: 15px;
-  position: relative;
+  /* position: relative; */
 }
 
 .shopee-mall__banner .shopee-mall__imagewrapper {
@@ -633,8 +638,8 @@ i.fa-arrow-right {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 48.5%;
-  left: 35%;
+  top: 46.5%;
+  left: -2%;
   z-index: 1;
   background-color: #fff;
   border-radius: 50%;
@@ -653,8 +658,8 @@ i.fa-arrow-right {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 48.5%;
-  left: 98.5%;
+  top: 46.5%;
+  right: -2%;
   z-index: 1;
   background-color: #fff;
   border-radius: 50%;

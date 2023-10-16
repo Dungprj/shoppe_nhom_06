@@ -111,6 +111,10 @@
   .shopee-mall__bannerleft {
     display: none;
   }
+  .shopee-mall__bannerleft
+  {
+    overflow:visible;
+  }
 
   .arrow-prev__shmall {
     left: -15px;
@@ -177,9 +181,20 @@
   .banner-slider {
     padding-top: 230px;
     padding-bottom: 45px;
+    
+  }
+  .deal-icon
+  {
+    margin-top: 135px;
   }
 
+  
+
   .banner-slider__left {
+    width: 100% !important;
+    
+  }
+  .banner-slider__right {
     display: none;
   }
 
@@ -188,9 +203,14 @@
   }
 
   .banner-slider .banner-slider__right {
-    position: absolute;
-    left: 0;
+    
   }
+  /* .shopee-mall__wrapper 
+  {
+    width: 650px;
+  }
+  */
+
 
   .banner-slider .banner-slider__right img {
     width: 540px;
@@ -198,35 +218,46 @@
     height: 135px;
   }
 
-  .arrow-prev,
-  .arrow-next {
-    top: 45%;
+  .container .shopee-mall__wrapper
+  {
+    max-width: fit-content;
   }
+  .lop_phu_right
+  {
+    width: 510px;
+  }
+  
+
+
 
   .shopee-mall__banner {
     width: 165%;
-    overflow: hidden;
+    
     visibility: visible;
   }
 
   .shopee-mall__imagelist {
     overflow: hidden;
+   
+  }
+  .shopee-mall__banner .shopee-mall__imagelist 
+  {
+    width: 155%;
   }
 
   .shopee-mall__bannerleft {
     display: none;
   }
 
-  .shopee-mall__bannerright {
-  }
+  
 
   .arrow-prev__shmall {
-    left: -15px;
-    z-index: 1;
+    
+   
   }
 
   .shmall-img {
-    width: 50%;
+    width: 30%;
   }
 
   .header-find__img {
