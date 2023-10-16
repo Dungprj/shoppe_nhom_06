@@ -20,6 +20,8 @@ body {
   padding-bottom: 15px;
   width: 100%;
   z-index: 2;
+  height: 150px;
+  position: relative;;
 }
 
 .header-connect {
@@ -70,11 +72,28 @@ body {
   display: flex;
   margin-top: 15px;
   padding: 0;
+  width: 100%;
+  justify-content: center;
+}
+
+.header-find__img {
+  /* margin-right: -10px; */
+  width: 400px;
+  display: inline-block;
+}
+
+.header-find .header-find__img img {
+  width: 50%;
+}
+
+.header-search__box {
+  width: 100%;
 }
 
 .header-find__input {
   height: 48px;
-  width: 875px;
+  width: 160%;
+  position: relative;
 }
 
 .header-find__icon {
@@ -96,8 +115,13 @@ body {
 }
 
 .header-items {
-  position: relative;
+  position: absolute;
   white-space: nowrap;
+  /* padding-top: 80px; */
+  left: 0;
+  display: inline;
+  /* margin-left: 28%; */
+  left: 31%;
 }
 
 .header-items__wrapper {
@@ -122,13 +146,14 @@ body {
 .header-items__wrapper li:last-child {
   padding: 0;
   margin: 0;
+  margin-right: -20px;
 }
 
 /* Banner */
 
 .banner-slider {
   position: relative;
-  padding-top: 170px;
+  padding-top: 25px;
 }
 
 .banner-slider .banner-slider__left {
@@ -537,10 +562,21 @@ i.fa-arrow-right {
 .shopee-mall__banner .shopee-mall__imagewrapper {
   overflow: hidden;
   transition: all 500ms ease 0s;
+  width: 200%;
+  height: 100%;
+  overflow: hidden;
+  visibility: visible;
 }
 
 .shopee-mall__banner .shopee-mall__block {
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease;
+  visibility: visible;
 }
 
 .shopee-mall__banner .shopee-mall__bannerleft {
@@ -552,16 +588,17 @@ i.fa-arrow-right {
 }
 
 .shopee-mall__banner .shopee-mall__bannerright {
+  display: block;
   overflow: hidden;
   position: relative;
 }
 
-.shopee-mall__banner .shopee-mall__imagewrapper {
-  width: 200%;
-  overflow: hidden;
-}
 
 .shopee-mall__banner .shopee-mall__imagelist {
+  padding: 0px 0px;
+  list-style-type: none;
+  transform: translateX(0px, 0px);
+  transition: all 500ms ease 0s;
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
@@ -570,6 +607,9 @@ i.fa-arrow-right {
 }
 
 .shopee-mall__banner .shopee-mall__item {
+  height: 100%;
+  overflow: hidden;
+  visibility: visible;
 }
 
 .shopee-mall__banner .shmall-img {
@@ -596,7 +636,7 @@ i.fa-arrow-right {
   top: 48.5%;
   left: 35%;
   z-index: 1;
-  background-color: #ccc;
+  background-color: #fff;
   border-radius: 50%;
   padding: 10px;
 }
