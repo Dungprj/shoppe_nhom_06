@@ -1,0 +1,143 @@
+.form-input__password {
+  width: 100%;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px 10px;
+}
+
+.form-convenient {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.form-convenient .form-convenient__text {
+  text-decoration: none;
+  font-size: 14px;
+  color: #718dcf;
+}
+
+.form-des__input {
+  text-align: center;
+}
+
+.form-des__input .form-des__text {
+  color: #ef7081;
+  text-decoration: none;
+}
+
+.header-dangnhap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dang-nhap__left {
+  display: flex;
+  align-items: center;
+}
+
+.dang-nhap__left .dang-nhap__logo {
+  width: 150px;
+}
+
+.dang-nhap__left .dang-nhap__heading {
+  font-size: 24px;
+  margin-left: 5px;
+  padding-top: 15px;
+}
+
+.dang-nhap__right {
+  color: #ee5641ff;
+}
+
+.dang-nhap__fullbanner {
+  background-color: #ee4d2d;
+}
+
+.background-dangnhap {
+  position: relative;
+}
+
+.dang-nhap__banner {
+  position: relative;
+  width: 100%;
+}
+
+.dang-nhap__form {
+  position: absolute;
+  width: 400px;
+  height: 430px;
+  background-color: #fff;
+  right: 10%;
+  top: 23%;
+  border-radius: 5px;
+}
+
+.form_heading {
+  font-size: 1.25rem;
+  margin: 20px 0;
+}
+
+.form-input__phone {
+  width: 100%;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px 10px;
+}
+
+.form-input__btn {
+  width: 100%;
+  background: #f3826c;
+  color: white;
+  border: none;
+  padding: 13px 10px;
+  border-radius: 3px;
+}
+
+.form-input__border {
+}
+
+.form-input__social {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.form-social__fb {
+  border: 1px solid #e2e2e2;
+  width: 100%;
+  margin-right: 5px;
+  padding: 10px 0;
+}
+
+.form-social__gg {
+  border: 1px solid #e2e2e2;
+  width: 100%;
+  margin-left: 5px;
+  padding: 10px 0;
+}
+
+.form-des {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-des .form-des__text {
+  color: #ef7081;
+  text-decoration: none;
+}
+
+.form-dangnhap {
+  text-align: center;
+}
+
+.form-dangnhap .form-des__text {
+  color: #ef7081;
+  text-decoration: none;
+}

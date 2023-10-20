@@ -32,6 +32,7 @@
 }
 
 .dang-ky__banner {
+  position: relative;
   width: 100%;
 }
 
