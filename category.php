@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+    require("./config.php");
+
+?>
+
+
 <html lang="en">
 
 <head>
@@ -71,7 +76,7 @@
           <li><a href="#!"><i class="fa-solid fa-globe"></i></a></li>
           <li><a href="#!">Tiếng Việt</a></li>
           <li><a href="#!"><i class="fa-solid fa-chevron-down"></i></a></li>
-          <li><a href="./dang_ky.html">Đăng Ký</i></a></li>
+          <li><a href="./register.php">Đăng Ký</i></a></li>
           <li><a href="./dang_nhap.html">Đăng Nhập</i></a></li>
         </ul>
       </div>
