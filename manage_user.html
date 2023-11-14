@@ -1,0 +1,60 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Quan Tri Tai Khoan</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="text-align: center">Trang Quan Tri Tai Khoan</h1>
+      <div class="row">
+        <div class="col-6">
+          <form action="manage_user.php" method="post">
+            <input type="text" placeholder="Họ và Tên" class="form-control" name="txt_fullname" />
+            <br>
+            <input type="text" placeholder="Tên đăng nhập" class="form-control" name="txt_username" />
+            <br>
+            <input type="password" placeholder="Mật Khẩu" class="form-control" name="txt_password" />
+            <br>
+            <input type="password" placeholder="Nhập lại mật khẩu" class="form-control" name="txt_password_re" />
+            <br>
+            <input type="text" placeholder="Email" class="form-control" name="txt_email" />
+            <br>
+            <input type="submit" class="btn btn-primary" name="btn_insert" value="Thêm tài khoản" />
+          </form>
+        </div>
+      </div>
+      <!-- <div class="row" style="margin-top: 10px; display: flex;">
+        <div class="col-6">
+          <form action="category.php" method="post" style="margin-top: 10px; display: flex;">
+            <input placeholder="Nhap vao ten dm......." class="form-control" type="text" name="txt_search">
+            <input class="btn btn-success" type="submit" value="Tim kiem" name="btn_search"></input>
+          </form>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-12">
+          <table class="table tabke-stripped">
+            <tr>
+              <th>ID</th>
+              <th>Tên Đăng Nhập</th>
+              <th>Mật Khẩu</th>
+              <th>Họ và Tên</th>
+              <th>Email</th>
+              <th>Trang Thai</th>
+              <th>Admin</th>
+            </tr>
+            <form action="category.php" method="post">
+              <input type="submit" value="Xoa theo chon" name="delete_check" class="btn btn-info">
+              <input type="submit" value="Xoa toan bo" name="delete_all" class="btn btn-danger">
+              
+            
+            </form>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
