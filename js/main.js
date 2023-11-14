@@ -159,3 +159,5 @@ btn_shopemall_next.addEventListener("click", next_shopee_mall);
 
 btn_shopeemall_prev = document.querySelector(".arrow-prev__shmall");
 btn_shopeemall_prev.addEventListener("click", prev_shopee_mall);
+
+
