@@ -27,6 +27,7 @@
                 $sql_insert = "insert into tbl_users(user_login,user_pass,user_email,display_name,user_status) values('".$user_name."',md5('".$password."'),'".$email."','".$fullname."',1)";
                 if (mysqli_query($conn, $sql_insert)){
                     echo " dang ki thanh cong";
+                    header("location:login.php");
 
                 }
                 else{
@@ -107,11 +108,11 @@
           Bằng việc đăng kí, bạn đã đồng ý với Shopee về <br />
           <a class="form-des__text" href="#!">Điều Khoản dịch vụ</a> &
           <a class="form-des__text" href="#!">Chính sách bảo mật</a>
-        </div>
+        </div> -->
         <div class="form-dangnhap">
           Bạn đã có tài khoản?
           <a class="form-des__text" href="./login.php">Đăng nhập</a>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>

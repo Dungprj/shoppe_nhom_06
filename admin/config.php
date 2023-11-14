@@ -1,5 +1,5 @@
 <?php
-  $servername = "localhost:3310";
+  $servername = "localhost";
   $username = "root";
   $password = "";
   $db = "shopee";
