@@ -4,7 +4,8 @@
         $cate_name = $_POST["txt_cate_name"];
         $cate_id = $_POST["txt_cate_id"];
         $status = $_POST["txt_status"];
-        $sql_update = "update tbl_category set catename = N'".$cate_name."', status = ".$status." where id =" .$cate_id;
+        $image = $_POST["img"];
+        $sql_update = "update tbl_category set catename = N'".$cate_name."', image = '".$image  ."', status = ".$status." where id =" .$cate_id;
         if (mysqli_query($conn, $sql_update)) {
             header("location:manage_cate.php");
             // echo "New record created successfully";
@@ -12,6 +13,11 @@
         else {
             echo "Error: " .$sql . "</br>" . mysqli_error($conn); 
         }
+    }
+
+    if(isset($_POST["btn_cancel"])) {
+        header("location: manage_cate.php");
+        exit();   
     }
 
 ?>
@@ -46,6 +52,8 @@
                                         echo "<input type='hidden' name='txt_cate_id' value ='".$row["id"]."'>";
                                         echo "Nhập vào tên danh mục:";
                                         echo "<input class='form-control' value ='".$row["catename"]."' type='text' name='txt_cate_name' required id=''>";
+                                        echo "Nhập vào đường dẫn ảnh:";
+                                        echo "<input class='form-control' value ='".$row["image"]."' type='text' name='img' required id=''>";
                                         echo "Nhập vào trạng thái danh mục:";
                                         echo "<input class='form-control' value ='".$row["status"]."' type='text' name='txt_status' required id=''>";
                                     }
