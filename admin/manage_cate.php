@@ -10,13 +10,36 @@
   if(isset($_POST["btn_insert"])) {
     $cate_name = $_POST["txt_cate_name"];
     $status = $_POST["txt_status"];
-    $sql_insert = "insert into tbl_category(catename, status) 
-                  values(N'" .$cate_name. "'," .$status. ")";
-    if(mysqli_query($conn, $sql_insert)) {
-      header("location:manage_cate.php");
-    } else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+
+    $target_dir = "../img_danh_muc/";
+    $target_file = $target_dir . basename($_FILES["img"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    //kiem tra dinh dang file anh
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif" ) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
     }
+
+    if($uploadOk == 0) {
+      echo "Sorry, your file was not uploaded.";
+    }
+    else {
+      if(move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+        $sql_insert = "insert into tbl_category(catename, image, status) 
+                  values(N'" .$cate_name. "', '".$target_file."', " .$status. ")";
+        if(mysqli_query($conn, $sql_insert)) {
+          header("location:manage_cate.php");
+        } 
+        else {
+          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+      } 
+      else {
+        echo "Sorry, there was an error uploading your file.";
+      }
+    } 
   }
 
   // xóa
@@ -66,6 +89,10 @@
           <form action="manage_cate.php" method="post" enctype="multipart/form-data">
             Nhập vào tên danh mục:
             <input type="text" class="form-control" name="txt_cate_name" />
+            <br>
+            Chọn ảnh đại diện cho danh mục:
+            <input class="form-control" type="file" name="img" id="">
+            <br>
             Nhập vào trạng thái danh mục:
             <input type="text" class="form-control" name="txt_status" />
             <br>
@@ -93,6 +120,7 @@
               <tr>
                 <th>Mã DM</th>
                 <th>Tên danh mục</th>
+                <th>Hình ảnh</th>
                 <th>Trạng thái</th>
                 <th>Thao tác</th>
                 <th>Lựa chọn</th>
@@ -122,6 +150,7 @@
                       echo "<tr>";
                         echo "<td>".$row["id"]."</td>";
                         echo "<td>".$row["catename"]."</td>";
+                        echo "<td> <img style='width:100px;' src=../img_danh_muc/".$row["image"]."></td>";
                         if ($row["status"] == 1) {
                           echo "<td style='color:green'>Hiện</td>";
                         } else {
