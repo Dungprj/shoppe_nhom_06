@@ -1,0 +1,13 @@
+
+
+.bl_btn_cancel_submit{
+    display: flex;
+    justify-content: end;
+    margin-right: 125px;
+    
+}
+
+.btn_cancel_edit_address
+{
+    margin-right: 50px;
+}

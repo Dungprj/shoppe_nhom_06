@@ -2,7 +2,7 @@
 <!-- ma hoa, ipa,token -->
 
 <?php
-    require("config.php");
+    require "./conect.php";
 
     if(isset($_POST["btn_register"])){
       
@@ -17,14 +17,14 @@
 
         }
         else{
-            $sql = "select * from tbl_users where user_login = '".$user_name."' ";
+            $sql = "select * from tbl_user where username = '".$user_name."' ";
             $result = mysqli_query($conn,$sql);
             if(mysqli_num_rows($result)>0){
                 echo "Ten dang nhap da ton tai";
 
             }
             else{
-                $sql_insert = "insert into tbl_users(user_login,user_pass,user_email,display_name,user_status) values('".$user_name."',md5('".$password."'),'".$email."','".$fullname."',1)";
+                $sql_insert = "insert into tbl_user(username,password,email,name,status,admin) values('".$user_name."',md5('".$password."'),'".$email."','".$fullname."',1,0)";
                 if (mysqli_query($conn, $sql_insert)){
                     echo " dang ki thanh cong";
                     header("location:login.php");
@@ -48,11 +48,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./fontawesome-free-6.4.2-web/fontawesome-free-6.4.2-web/css/reset.css" />
-  <link rel="stylesheet" href="../css/dang_ky.css" />
+  <link rel="stylesheet" href="./css/dang_ky.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="./css/responsive.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <title>Đăng Ký</title>
 </head>
@@ -61,8 +61,8 @@
   <div>
     <div class="container header-dangky">
       <div class="dang-ky__left">
-        <a href="../index.html">
-          <img class="dang-ky__logo" src="../img/shopee-logo__dangky.png" alt="logo" />
+        <a href="./index.html">
+          <img class="dang-ky__logo" src="./img/shopee-logo__dangky.png" alt="logo" />
         </a>
         <h2 class="dang-ky__heading">Đăng ký</h2>
       </div>
@@ -73,7 +73,7 @@
     <div class="dang-ky__fullbanner">
       <div class="container background-dangky">
         <div class="dang-ky__banner">
-          <img src="../img/dang_ky_bg.png" alt="" />
+          <img src="./img/dang_ky_bg.png" alt="" />
         </div>
       </div>
       <div class="background_temporary"></div>

@@ -1,3 +1,46 @@
+<?php
+session_start();
+require "./conect.php";
+
+if (!$_SESSION["user_name"])
+{
+  header("Location:./login.php");
+}
+
+$sql = "select * from tbl_user where username = '".$_SESSION["user_name"]."' ";
+$user_id;
+$username;
+$name;
+$email;
+$phone;
+$avata;
+$gender;
+$data_of_birth;
+$admin;
+$result = mysqli_query($conn,$sql);
+
+
+if (mysqli_num_rows($result)>0)
+{
+	while ($row = mysqli_fetch_assoc($result))
+	{
+      $user_id = $row["id_user"];
+      $username = $row["username"];
+      $name = $row["name"];
+      $email = $row["email"];
+      $phone = $row["phone"];
+      $avata = $row["avata"];
+      $gender = $row["gender"];
+      $data_of_birth = $row["date_of_birth"];
+      $admin = $row["admin"];
+
+  }
+
+}
+$_SESSION["id_user"] = $user_id;
+$_SESSION["admin"] = $admin;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,10 +53,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="./fontawesome-free-6.4.2-web/fontawesome-free-6.4.2-web/css/all.css" />
   <link rel="stylesheet" href="./fontawesome-free-6.4.2-web/fontawesome-free-6.4.2-web/css/reset.css">
+  <link rel="stylesheet" href="./css/trang_chu.css">
   
   <link rel="stylesheet" href="./form-control">
   <link rel=" stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/style.css">
+  
   <link rel="stylesheet" href="./css/footer_Shopee.css">
   <link rel="stylesheet" href="./css/xem_them.css">
   <link rel="stylesheet" href="./css/responsive.css">
@@ -56,10 +100,10 @@
               </div>
               <div class="dropdown_item--bottom">
                 <div class="sign">
-                  <a href="./login.php" >Đăng nhập</a>
+                  <a href="./dang_nhap.html" >Đăng nhập</a>
                 </div>
                 <div class="log">
-                  <a href="./register.php">Đăng ký</a>
+                  <a href="./admin/dangky.php">Đăng ký</a>
                 </div>             
               </div>
             </div>
@@ -71,9 +115,20 @@
           <li><a href="#!"><i class="fa-solid fa-globe"></i></a></li>
           <li><a href="#!">Tiếng Việt</a></li>
           <li><a href="#!"><i class="fa-solid fa-chevron-down"></i></a></li>
-          <li><a href="./admin/register.php">Đăng Ký</i></a></li>
-          <li><a href="./admin/login.php">Đăng Nhập</i></a></li>
+          <li class="li_avata_trangchu"><img class="avata_trangchu" src="<?php echo $avata?>" alt=""></li>
+          <li class="li_name_profile"><a href="./dang_nhap.html" style="padding:10px;" ><?php echo $username?></a>
+            <div class="bl_hover_profile">
+              <ul class="bl_profile">
+                <li id="li_name_profile"><a id="a_txt_myacount" href="./thongtin.php">My account</a></li>
+                <li id="li_logout"><a id="a_txt_logout" href="./logout.php">Logout</a></li>
+                <li id="li_admint"><a id="a_txt_admin" href="./admin/manage_user.php">Admin</a></li>
+              </ul>
+            </div>
+          </li>
+          
         </ul>
+        
+       
       </div>
       <div class="container header-find">
         <div class="header-find__img"><img src="./img/shopee_logo.png" alt="shopee_logo"></div>
@@ -98,6 +153,7 @@
           <li class="col-1">Áo Phông Nam</li>
           <li class="col-1">Dép Quai Hậu Nữ</li>
           <li class="col-1">Bình Giữ Nhiệt</li>
+          
         </ul>
       </div>
     </div>

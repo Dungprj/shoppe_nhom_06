@@ -56,10 +56,10 @@
               </div>
               <div class="dropdown_item--bottom">
                 <div class="sign">
-                  <a href="./login.php" >Đăng nhập</a>
+                  <a href="./dang_nhap.html" >Đăng nhập</a>
                 </div>
                 <div class="log">
-                  <a href="./register.php">Đăng ký</a>
+                  <a href="./admin/register.php">Đăng ký</a>
                 </div>             
               </div>
             </div>
@@ -72,7 +72,7 @@
           <li><a href="#!">Tiếng Việt</a></li>
           <li><a href="#!"><i class="fa-solid fa-chevron-down"></i></a></li>
           <li><a href="./admin/register.php">Đăng Ký</i></a></li>
-          <li><a href="./admin/login.php">Đăng Nhập</i></a></li>
+          <li><a href="./dang_nhap.php">Đăng Nhập</i></a></li>
         </ul>
       </div>
       <div class="container header-find">
