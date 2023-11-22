@@ -176,7 +176,7 @@ if(isset($_GET["task"]) && $_GET["task"] == "delete") {
         </ul>
       </div>
       <div class="container header-find">
-        <div class="header-find__img"><img src="./img/shopee_logo.png" alt="shopee_logo"></div>
+      <div class="header-find__img"><a href="./trangchu.php"><img src="./img/shopee_logo.png" alt="shopee_logo"></a></div>
         <div class="header-search__box">
           <div class="header-find">
             <input class="form-control header-find__input" type="text" placeholder="Shopee bao ship 0Đ - Đăng ký ngay!">
@@ -328,10 +328,10 @@ if (mysqli_num_rows($result)>0)
       echo "   </div>";
       echo " </div>";
       echo " <form class='bl-editprofile_thongtin' method='post'>";
-      echo "   <a type='submit' class='btn-edit-profile_thongtin btn' href='http://localhost/shoppe-thongtin/shoppe_nhom_06/update_address.php?task=update&id=$id_address_user&username=$username&phone=$phone&address=$address'>";
+      echo "   <a type='submit' class='btn-edit-profile_thongtin btn' href='./update_address.php?task=update&id=$id_address_user&username=$username&phone=$phone&address=$address'>";
       echo "     Edit";
       echo "   </a>";
-      echo "   <a href='http://localhost/shoppe-thongtin/shoppe_nhom_06/address.php?task=delete&id=$id_address_user' type='submit' class='btn-delete-profile_thongtin btn'>";
+      echo "   <a href='./address.php?task=delete&id=$id_address_user' type='submit' class='btn-delete-profile_thongtin btn'>";
       echo "     Delete";
       echo "   </a>";
       echo " </form>";
