@@ -98,14 +98,14 @@ $_SESSION["admin"] = $admin;
                 <img style="width: 30%;" src="./img/tb.png" alt="">
                 <p>Đăng nhập để xem Thông báo</p>
               </div>
-              <div class="dropdown_item--bottom">
+              <!-- <div class="dropdown_item--bottom">
                 <div class="sign">
                   <a href="./dang_nhap.html" >Đăng nhập</a>
                 </div>
                 <div class="log">
                   <a href="./admin/dangky.php">Đăng ký</a>
                 </div>             
-              </div>
+              </div> -->
             </div>
           </div>
           <li><a href="#!"><i class="fa-regular fa-bell"></i></a></li>
@@ -116,7 +116,7 @@ $_SESSION["admin"] = $admin;
           <li><a href="#!">Tiếng Việt</a></li>
           <li><a href="#!"><i class="fa-solid fa-chevron-down"></i></a></li>
           <li class="li_avata_trangchu"><img class="avata_trangchu" src="<?php echo $avata?>" alt=""></li>
-          <li class="li_name_profile"><a href="./dang_nhap.html" style="padding:10px;" ><?php echo $username?></a>
+          <li class="li_name_profile"><a href="./thongtin.php" style="padding:10px;" ><?php echo $username?></a>
             <div class="bl_hover_profile">
               <ul class="bl_profile">
                 <li id="li_name_profile"><a id="a_txt_myacount" href="./thongtin.php">My account</a></li>
@@ -131,7 +131,7 @@ $_SESSION["admin"] = $admin;
        
       </div>
       <div class="container header-find">
-        <div class="header-find__img"><img src="./img/shopee_logo.png" alt="shopee_logo"></div>
+        <div class="header-find__img"><a href="./trangchu.php"><img src="./img/shopee_logo.png" alt="shopee_logo"></a></div>
         <div class="header-search__box">
           <div class="header-find">
             <input class="form-control header-find__input" type="text" placeholder="Shopee bao ship 0Đ - Đăng ký ngay!">

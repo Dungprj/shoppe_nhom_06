@@ -158,7 +158,7 @@ if (isset($_POST["btn_save_pass_new"]))
         </ul>
       </div>
       <div class="container header-find">
-        <div class="header-find__img"><img src="./img/shopee_logo.png" alt="shopee_logo"></div>
+      <div class="header-find__img"><a href="./trangchu.php"><img src="./img/shopee_logo.png" alt="shopee_logo"></a></div>
         <div class="header-search__box">
           <div class="header-find">
             <input class="form-control header-find__input" type="text" placeholder="Shopee bao ship 0Đ - Đăng ký ngay!">
