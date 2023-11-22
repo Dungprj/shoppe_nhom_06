@@ -147,7 +147,7 @@ if (isset($_POST["btn_save_pass_new"]))
           <li><a href="#!">Tiếng Việt</a></li>
           <li><a href="#!"><i class="fa-solid fa-chevron-down"></i></a></li>
           <li class="li_avata_trangchu"><img class="avata_trangchu" src="<?php echo $avata?>" alt=""></li>
-          <li class="li_name_profile"><a href="./dang_nhap.html" ><?php echo $username?></a>
+          <li class="li_name_profile"><a href="./dang_nhap.html" style="padding:10px;"><?php echo $username?></a>
             <div class="bl_hover_profile">
               <ul class="bl_profile">
                 <li id="li_name_profile"><a id="a_txt_myacount" href="./thongtin.php">My account</a></li>
