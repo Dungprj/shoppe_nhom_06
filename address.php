@@ -33,6 +33,7 @@ if (mysqli_num_rows($result)>0)
       $avata = $row["avata"];
       $gender = $row["gender"];
       $date_of_birth = $row["date_of_birth"];
+      
   }
 
 }
@@ -293,7 +294,7 @@ if(isset($_GET["task"]) && $_GET["task"] == "delete") {
        
         $id_user = $_SESSION["id_user"];
 
-$sql = "select * from tbl_address_user";
+$sql = "select * from tbl_address_user where id_user = $id_user" ;
 
 $result = mysqli_query($conn,$sql);
 

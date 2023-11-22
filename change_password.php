@@ -46,7 +46,7 @@ if (isset($_POST["btn_save_pass_new"]))
   $new_pass = $_POST["new_pass"];
   $new_pass_repeat = $_POST["new_pass_repeat"];
 
-  $sql_update = "UPDATE tbl_user SET password='".$new_pass."' WHERE id_user = $id_user";
+  $sql_update = "UPDATE tbl_user SET password=md5('".$new_pass."') WHERE id_user = $id_user";
 
   if (mysqli_query($conn,$sql_update))
   {
