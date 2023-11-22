@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="bootstrap.min.css">
+<script>
+    var x = 10;
+    let y = "xin chao";
+    function get_hoten() {
+        var hoten = document.getElementById("txt_hoten").value;
+        console.log(hoten);
+        alert("xin chao" + hoten)
+    }
+    function vanban() {
+        var hoten = document.getElementById("txt_hoten").value;
+        document.getElementById("vb").innerHTML = hoten;
+    }
+</script>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">form dang ky</h1>
+        <div class="row">
+            <div class="col-6">
+                <form action="method=">
+                    nhap vao ho ten:
+                    <input onkeypress="vanban()" class="form-control" type="text" name="" id="txt_hoten">
+                    <p id="vb"></p>
+                    <br>
+                    nhap vao email:
+                    <input class="form-control" type="email" name="" id="">
+                    nhap vao username
+                    <input class="form-control" type="text" name="" id="">
+                    nhap mat khau
+                    <input class="form-control" type="password" name="" id="">
+                    chon anh
+                    <input class="form-control" type="file" name="" id="">
+                    gioi tinh <br>
+                    nam: <input class="form-check-input" type="radio" name="gioi_tinh" id="nam"><br>
+                    nu: <input class="form-check-input" type="radio" name="gioi_tinh" id="nu">
+                    <br>
+                    lua chon trinh do
+                    <select class="form-control" name="trinh_do" id="trinh_do">
+                        <option value="dai_hoc">Dai hoc</option>
+                        <option value="thpt">THPT</option>
+                        <option value="thac_si">Thac si</option>
+                    </select>
+                    <a onclick="alert" href="#" class="btn btn-primary">dang ky</a><br>
+                    <a href="#" class="btn btn-danger">huy</a><br>
+                    <a href="#">ban da co tai khoan</a><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

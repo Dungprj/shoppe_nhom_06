@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Form Dang ky</h1>
+        <div class="row">
+            <div class="col-6">
+                <form action="">
+                    <h2>Nhap vao ho ten</h2>
+                   <input class="form-control" type="text" id="txt_hoten"> 
+                   <br>
+                   <h2>Nhap vao email</h2>
+                   <input class="form-control" type="email" id="txt_email">
+                   <br>
+                   <h2>Nhap vao username</h2>
+                   <input class="form-control" type="text" id="txt_username"> 
+                    <br>
+                   <h2>Nhap vao password</h2>
+                   <input class="form-control" type="password" id="txt_password"> 
+                   <br>
+                   <h2>Chon anh dai dien</h2>
+                   <input class="form-control" type="file" >
+                   <br>
+                   <h2>gioi tinh</h2>
+                   <h3>nam</h3>
+                   <input class="form-check-input" name="gioi_tinh" type="radio" id="nam">
+                   <h3>nu</h3>
+                   <input class="form-check-input" name="gioi_tinh" type="radio" id="nu">
+
+
+                   <br>
+                   <h2>lua chon trinh do</h2>
+                   <select class="form-control" name="trinh_do" id="trinh_do">
+                    <option value="dai_hoc">Dai hoc</option>
+                    <option value="thpt">thpt</option>
+                    <option value="thac_si">thac_si</option>
+
+                   </select>
+                   <a href="#" class="btn btn-primary">dang ky</a>
+                   <a href="#" class="btn btn-danger">Huy</a>
+                   <a href="#">Ban da co tai khoan</a>
+
+                </form>
+
+            </div>
+        </div>
+    </div>    
+</body>
+<script>
+    let list_radio = document.querySelectorAll(".form-check-input")
+    console.log([list_radio[0]])
+</script>
+</html>

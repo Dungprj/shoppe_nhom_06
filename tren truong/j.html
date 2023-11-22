@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+<style>
+    .red {
+        background-color: red;
+    }
+
+    .green {
+        background-color: green;
+    }
+
+    .blue {
+        background-color: blue;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $("#an").click(function () {
+            $("#img").hide(2000);
+        })
+        $("#hien").click(function () {
+            $("#img").show(200);
+        })
+        $("#red").click(function () {
+            $("#box").addClass("red")
+        })
+        $("#green").click(function () {
+            $("#box").addClass("green")
+        })
+        $("#blue").click(function () {
+            $("#box").addClass("blue")
+        })
+    })
+
+</script>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <img style="width:30%;" id="img" src="img/MicrosoftTeams-image (1).png" alt="">
+            <button style="width:30%;" class="btn btn-primary" id="hien">hien thi</button>
+            <button style="width:30%;" class="btn btn-danger" id="an">an hinh anh</button>
+            <div style="width: 300px;height: 300px; border: 1px solid red;margin-top: 10px;" class="box"></div>
+            <button class="btn btn-danger" id="red">Red</button>
+            <button class="btn btn-success" id="green">Green</button>
+            <button class="btn btn-primary" id="blue">Blue</button>
+        </div>
+
+    </div>
+</body>
+
+</html>
