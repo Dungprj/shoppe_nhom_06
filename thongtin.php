@@ -1,8 +1,11 @@
 <?php
-
+session_start();
 require "./conect.php";
 
-session_start();
+if (!$_SESSION["user_name"])
+{
+  header("Location:./login.php");
+}
 
 if(isset($_POST["btn_save"]))
 {
@@ -39,14 +42,11 @@ if(isset($_POST["btn_save"]))
 }
 
 
-if (!$_SESSION["user"])
-{
-  header("Location:./dang_nhap.php");
-}
+
 
 //get data user
 
-$sql = "select * from tbl_user where username = '".$_SESSION["user"]."' ";
+$sql = "select * from tbl_user where username = '".$_SESSION["user_name"]."' ";
 $username;
 $name;
 $email;
@@ -389,7 +389,7 @@ if (mysqli_num_rows($result)>0)
                 </div>
                 <div class="select_img_profile_thongtin" style="position:relative;">
                   <div style="right: 27%;width: 42%;position: absolute;top: -31%;overflow: hidden;">
-                    <input type="file" name="upload_file" id="" style="width=100%; margin-bottom:5px;"  >
+                    <input type="file" name="upload_file" id="" style="width:100%; margin-bottom:5px;"  >
                     
                     
                   </div>

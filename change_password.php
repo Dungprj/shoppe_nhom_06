@@ -1,15 +1,15 @@
 <?php
-
+session_start();
 
 require "./conect.php";
 
-session_start();
-if (!$_SESSION["user"])
+
+if (!$_SESSION["user_name"])
 {
-  header("Location:./dang_nhap.php");
+  header("Location:./login.php");
 }
 
-$sql = "select * from tbl_user where username = '".$_SESSION["user"]."' ";
+$sql = "select * from tbl_user where username = '".$_SESSION["user_name"]."' ";
 $username;
 $name;
 $email;

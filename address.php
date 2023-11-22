@@ -3,14 +3,14 @@ require "./conect.php";
 
 session_start();
 
-if (!$_SESSION["user"])
+if (!$_SESSION["user_name"])
 {
-  header("Location:./dang_nhap.php");
+  header("Location:./login.php");
 }
 
 //get data user
 
-$sql = "select * from tbl_user where username = '".$_SESSION["user"]."' ";
+$sql = "select * from tbl_user where username = '".$_SESSION["user_name"]."' ";
 $username;
 $name;
 $email;
@@ -39,8 +39,7 @@ if (mysqli_num_rows($result)>0)
 
 if(isset($_SESSION["id_user"]))
 {
-$id_user = $_SESSION["id_user"];
-
+  $id_user = $_SESSION["id_user"];
 
 }
 

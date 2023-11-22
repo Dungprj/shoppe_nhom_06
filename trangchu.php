@@ -1,15 +1,14 @@
 <?php
+session_start();
 require "./conect.php";
 
-session_start();
-
-
-if (!$_SESSION["user"])
+if (!$_SESSION["user_name"])
 {
-  header("Location:./dang_nhap.php");
+  header("Location:./login.php");
 }
 
-$sql = "select * from tbl_user where username = '".$_SESSION["user"]."' ";
+$sql = "select * from tbl_user where username = '".$_SESSION["user_name"]."' ";
+$user_id;
 $username;
 $name;
 $email;
@@ -17,6 +16,7 @@ $phone;
 $avata;
 $gender;
 $data_of_birth;
+$admin;
 $result = mysqli_query($conn,$sql);
 
 
@@ -24,7 +24,7 @@ if (mysqli_num_rows($result)>0)
 {
 	while ($row = mysqli_fetch_assoc($result))
 	{
-    
+      $user_id = $row["id_user"];
       $username = $row["username"];
       $name = $row["name"];
       $email = $row["email"];
@@ -32,9 +32,13 @@ if (mysqli_num_rows($result)>0)
       $avata = $row["avata"];
       $gender = $row["gender"];
       $data_of_birth = $row["date_of_birth"];
+      $admin = $row["admin"];
+
   }
 
 }
+$_SESSION["id_user"] = $user_id;
+$_SESSION["admin"] = $admin;
 
 ?>
 <!DOCTYPE html>
@@ -117,6 +121,7 @@ if (mysqli_num_rows($result)>0)
               <ul class="bl_profile">
                 <li id="li_name_profile"><a id="a_txt_myacount" href="./thongtin.php">My account</a></li>
                 <li id="li_logout"><a id="a_txt_logout" href="./logout.php">Logout</a></li>
+                <li id="li_admint"><a id="a_txt_admin" href="./admin/manage_user.php">Admin</a></li>
               </ul>
             </div>
           </li>

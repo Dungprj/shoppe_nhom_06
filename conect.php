@@ -10,7 +10,7 @@ $conn = mysqli_connect($sever,$username,$password,$db);
 
 if (!$conn)
 {
-	die ("Connection failed ".mysql_connect_error());
+	die("Kết nối thất bại: " . mysqli_connect_error());
 }
 
 ?>
