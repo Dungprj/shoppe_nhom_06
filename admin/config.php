@@ -2,7 +2,7 @@
   $servername = "localhost";
   $username = "root";
   $password = "";
-  $db = "shopee";
+  $db = "shoppe_new";
 
   $conn = mysqli_connect($servername,$username,$password,$db);
   //  Check connection
