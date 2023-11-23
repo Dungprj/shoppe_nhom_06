@@ -1,7 +1,8 @@
 <?php
+session_start();
 require "./conect.php";
 
-session_start();
+
 
 if (!$_SESSION["user_name"])
 {
@@ -10,7 +11,7 @@ if (!$_SESSION["user_name"])
 
 //get data user
 
-$sql = "select * from tbl_user where username = '".$_SESSION["user_name"]."' ";
+$sql = "select * from tbl_user where id_user = '".$_SESSION["id_user"]."' ";
 $username;
 $name;
 $email;
@@ -170,6 +171,18 @@ if(isset($_GET["task"]) && $_GET["task"] == "delete") {
               <ul class="bl_profile">
                 <li id="li_name_profile"><a id="a_txt_myacount" href="./thongtin.php">My account</a></li>
                 <li id="li_logout"><a id="a_txt_logout" href="./logout.php">Logout</a></li>
+                <?php
+                if (isset($_SESSION['admin']) == true) {
+                  // Ngược lại nếu đã đăng nhập
+                  $admin = $_SESSION['admin'];
+                  // Kiểm tra quyền của người đó có phải là admin hay không
+                  if ($admin == 1) {
+                    // Nếu không phải admin thì xuất thông báo
+                    echo '<li id="li_admin"><a id="a_txt_admin" href="./admin/manage_user.php">Admin</a></li>';
+                    
+                  }
+                }
+                ?>
               </ul>
             </div>
           </li>

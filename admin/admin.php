@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_SESSION['user_name']) == false) {
 	// Nếu người dùng chưa đăng nhập thì chuyển hướng website sang trang đăng nhập
-	header('Location: ./login.php');
+	header('Location: ../login.php');
 }else {
 	if (isset($_SESSION['admin']) == true) {
 		// Ngược lại nếu đã đăng nhập
@@ -18,5 +18,15 @@ if (isset($_SESSION['user_name']) == false) {
 	}
 }
 
-
 ?>
+
+<html>
+    <head>
+        <title>Admin</title>
+    </head>
+    <body>
+        <button><a href="./manage_user.php">Người Dùng</a></button>
+        <button><a href="./manage_product.php">Sản Phẩm</a></button>
+        <button><a href="./manage_cate.php">Danh Mục</a></button>
+    </body>
+</html>

@@ -35,10 +35,11 @@ if (mysqli_num_rows($result)>0)
       $admin = $row["admin"];
 
   }
-
+  $_SESSION["id_user"] = $user_id;
+  $_SESSION["admin"] = $admin;
 }
-$_SESSION["id_user"] = $user_id;
-$_SESSION["admin"] = $admin;
+// $_SESSION["id_user"] = $user_id;
+// $_SESSION["admin"] = $admin;
 
 ?>
 <!DOCTYPE html>
@@ -121,7 +122,19 @@ $_SESSION["admin"] = $admin;
               <ul class="bl_profile">
                 <li id="li_name_profile"><a id="a_txt_myacount" href="./thongtin.php">My account</a></li>
                 <li id="li_logout"><a id="a_txt_logout" href="./logout.php">Logout</a></li>
-                <li id="li_admint"><a id="a_txt_admin" href="./admin/manage_user.php">Admin</a></li>
+                <?php
+                if (isset($_SESSION['admin']) == true) {
+                  // Ngược lại nếu đã đăng nhập
+                  $admin = $_SESSION['admin'];
+                  // Kiểm tra quyền của người đó có phải là admin hay không
+                  if ($admin == 1) {
+                    // Nếu không phải admin thì xuất thông báo
+                    echo '<li id="li_admin"><a id="a_txt_admin" href="./admin/manage_user.php">Admin</a></li>';
+                    
+                  }
+                }
+                ?>
+                <!-- <li id="li_admint"><a id="a_txt_admin" href="./admin/manage_user.php">Admin</a></li> -->
               </ul>
             </div>
           </li>

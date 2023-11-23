@@ -899,13 +899,21 @@ a {
 #a_txt_logout
 {
   color: #000;
-
+}
+#a_txt_admin
+{
+  color: #000;
 }
 #li_name_profile:hover a
 {
   color: aqua;
 }
 #li_logout:hover a
+{
+  color: aqua;
+
+}
+#li_admin:hover a
 {
   color: aqua;
 
