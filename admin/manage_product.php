@@ -189,7 +189,7 @@
                         echo "<td>".$row["quantity"]."</td>";
 
                         echo "<td>";
-                          echo "<a  class='btn btn-warning' href='update_category.php?task=update&id=".$row["id"]."'> Sua</a>";
+                          echo "<a  class='btn btn-warning' href='update_product.php?task=update&id=".$row["id"]."'> Sua</a>";
                           echo "<a class='btn btn-danger' href='manage_product.php?task=delete&id=".$row["id"]."'> Xoa</a>";
                         echo "</td>";
 
