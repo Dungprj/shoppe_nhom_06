@@ -1,6 +1,7 @@
 <?php
-  require("./config.php");
-  session_start();
+  require("../conect.php");
+  require("./admin.php");
+
   // if(!$_SESSION["user"]) {
   //   header("location:../login.php");
   // } 

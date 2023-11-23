@@ -1,6 +1,6 @@
 <?php
-  require("./config.php");
-  
+  require("../conect.php");
+  require("./admin.php");
   if(isset($_POST["btn_update"])) {
 
     $product_id = $_POST['id_product'];
