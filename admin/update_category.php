@@ -1,5 +1,6 @@
 <?php
-    require("./config.php");    
+  require("../conect.php");
+  require("./admin.php"); 
     if(isset($_POST["btn_update"])) {
         $cate_name = $_POST["txt_cate_name"];
         $cate_id = $_POST["txt_cate_id"];

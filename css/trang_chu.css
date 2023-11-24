@@ -900,7 +900,10 @@ a {
 #a_txt_logout
 {
   color: #000;
-
+}
+#a_txt_admin
+{
+  color: #000;
 }
 #li_name_profile:hover a
 {
@@ -911,10 +914,17 @@ a {
   color: aqua;
 
 }
+<<<<<<< HEAD
 
 #mygiohang
 {
   width: 100%;
   height: 100%;
   padding: 5%;
+=======
+#li_admin:hover a
+{
+  color: aqua;
+
+>>>>>>> a2a65cc9ef14aab3b839fc21e8bf2b7731286d07
 }

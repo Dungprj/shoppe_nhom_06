@@ -2,6 +2,7 @@
 session_start();
 require "./conect.php";
 
+
 if (!$_SESSION["user_name"])
 {
   header("Location:./login.php");
@@ -9,8 +10,11 @@ if (!$_SESSION["user_name"])
 
 if(isset($_POST["btn_save"]))
 {
+  $username_new = $_POST["txt_username"];
+  $email = $_POST["txt_email"];
+  $phone = $_POST["txt_phone"];
   $gender_new = $_POST["gender"];
-  $hoten = $_POST["txt_name"];
+  $name = $_POST["txt_name"];
   $ngaysinh = $_POST["txt_date"];
  
 
@@ -29,7 +33,7 @@ if(isset($_POST["btn_save"]))
   }
  
 
-  $sql_update = "update tbl_user set name='".$hoten."',gender = $gender_id,date_of_birth = '".$ngaysinh."' where username = '".$_SESSION["user"]."'";
+  $sql_update = "update tbl_user set name='".$name."',username='".$username_new."',email='".$email."',phone='".$phone."',gender = $gender_id,date_of_birth = '".$ngaysinh."' where id_user = '".$_SESSION["id_user"]."'";
   if (mysqli_query($conn,$sql_update)>0)
   {
     
@@ -46,7 +50,7 @@ if(isset($_POST["btn_save"]))
 
 //get data user
 
-$sql = "select * from tbl_user where username = '".$_SESSION["user_name"]."' ";
+$sql = "select * from tbl_user where id_user = '".$_SESSION["id_user"]."' ";
 $username;
 $name;
 $email;
@@ -160,6 +164,18 @@ if (mysqli_num_rows($result)>0)
               <ul class="bl_profile">
                 <li id="li_name_profile"><a id="a_txt_myacount" href="./thongtin.php">My account</a></li>
                 <li id="li_logout"><a id="a_txt_logout" href="./logout.php">Logout</a></li>
+                <?php
+                if (isset($_SESSION['admin']) == true) {
+                  // Ngược lại nếu đã đăng nhập
+                  $admin = $_SESSION['admin'];
+                  // Kiểm tra quyền của người đó có phải là admin hay không
+                  if ($admin == 1) {
+                    // Nếu không phải admin thì xuất thông báo
+                    echo '<li id="li_admin"><a id="a_txt_admin" href="./admin/manage_user.php">Admin</a></li>';
+                    
+                  }
+                }
+                ?>
               </ul>
             </div>
           </li>
@@ -251,7 +267,8 @@ if (mysqli_num_rows($result)>0)
                <table class="table table-borderless">
                 <tr class="table-row-large" class="table-row-large">
                   <td>Username</td>
-                  <td><?php echo $username?></td>
+                  <td><input class="form-control" type="text" value="<?php echo $username?>" name="txt_username"></td>
+                  <!-- <td><?php echo $username?></td> -->
                 </tr>
                 <tr class="table-row-large" class="table-row-large">
 
@@ -260,11 +277,13 @@ if (mysqli_num_rows($result)>0)
                 </tr>
                 <tr class="table-row-large">
                   <td>Email</td>
-                  <td><?php echo $email?></td>
+                  <td><input class="form-control" type="text" value="<?php echo $email?>" name="txt_email"></td>
+                  <!-- <td><?php echo $email?></td> -->
                 </tr>
                 <tr class="table-row-large">
                   <td>Phone number</td>
-                  <td><?php echo $phone?></td>
+                  <td><input class="form-control" type="text" value="<?php echo $phone?>" name="txt_phone"></td>
+                  <!-- <td><?php echo $phone?></td> -->
                 </tr>
                 <tr class="table-row-large">
                   <td>Gender</td>

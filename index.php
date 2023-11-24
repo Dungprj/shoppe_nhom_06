@@ -1,3 +1,7 @@
+<?php
+  require "./conect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,10 +60,10 @@
               </div>
               <div class="dropdown_item--bottom">
                 <div class="sign">
-                  <a href="./dang_nhap.html" >Đăng nhập</a>
+                  <a href="./login.php" >Đăng nhập</a>
                 </div>
                 <div class="log">
-                  <a href="./admin/register.php">Đăng ký</a>
+                  <a href="./register.php">Đăng ký</a>
                 </div>             
               </div>
             </div>
@@ -71,7 +75,11 @@
           <li><a href="#!"><i class="fa-solid fa-globe"></i></a></li>
           <li><a href="#!">Tiếng Việt</a></li>
           <li><a href="#!"><i class="fa-solid fa-chevron-down"></i></a></li>
+<<<<<<< HEAD
           <li><a href="./admin/register.php">Đăng Ký</i></a></li>
+=======
+          <li><a href="./register.php">Đăng Ký</i></a></li>
+>>>>>>> a2a65cc9ef14aab3b839fc21e8bf2b7731286d07
           <li><a href="./login.php">Đăng Nhập</i></a></li>
         </ul>
       </div>
