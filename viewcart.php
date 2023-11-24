@@ -160,7 +160,7 @@ if (isset($_SESSION["user_name"]))
           <li><a href="#!">Tiếng Việt</a></li>
           <li><a href="#!"><i class="fa-solid fa-chevron-down"></i></a></li>
           <li class="li_avata_trangchu"><img class="avata_trangchu" src="<?php echo $avata?>" alt=""></li>
-          <li class="li_name_profile"><a href="./dang_nhap.html" style="padding:10px;"><?php echo $username?></a>
+          <li class="li_name_profile"><a href="./thongtin.php" style="padding:10px;"><?php echo $username?></a>
             <div class="bl_hover_profile">
               <ul class="bl_profile" style="top: 60%; width: 120px;
   height: 130px;">
@@ -274,10 +274,7 @@ if (isset($_SESSION["user_name"]))
 
         </div>
             <?php
-        if(!isset($_SESSION["cart"]))
-        {
-            echo "ban chua dat hang . Ban <a href='./trangchu.php'>Đặt hàng </a> đi";
-        }
+        
         ?>
     </div>
     

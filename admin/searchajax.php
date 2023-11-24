@@ -1,5 +1,5 @@
 <?php
-  require("./config.php");
+  require("../conect.php");
 
   $input = isset($_POST['input']);
 

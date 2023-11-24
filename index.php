@@ -1,5 +1,17 @@
 <?php
   require "./conect.php";
+
+
+  session_start();
+
+
+
+
+if (isset($_SESSION["user_name"])&&$_SESSION["user_name"])
+{
+ 
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +101,8 @@
           </div>
         </div>
         <div class="header-shop__iconwrapper">
-          <i class="fa-solid fa-cart-shopping header-shop__icon"></i>
+          <a id="mygiohang" href="./viewcart.php"><i class="fa-solid fa-cart-shopping header-shop__icon"></i></a>
+          
         </div>
       </div>
       <div class=" header-items">

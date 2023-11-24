@@ -166,7 +166,7 @@ if(isset($_GET["task"]) && $_GET["task"] == "delete") {
           <li><a href="#!">Tiếng Việt</a></li>
           <li><a href="#!"><i class="fa-solid fa-chevron-down"></i></a></li>
           <li class="li_avata_trangchu"><img class="avata_trangchu" src="<?php echo $avata?>" alt=""></li>
-          <li class="li_name_profile"><a href="./dang_nhap.html" style="padding:10px;"><?php echo $username?></a>
+          <li class="li_name_profile"><a href="./thongtin.php" style="padding:10px;" ><?php echo $username?></a>
             <div class="bl_hover_profile">
               <ul class="bl_profile">
                 <li id="li_name_profile"><a id="a_txt_myacount" href="./thongtin.php">My account</a></li>
@@ -197,7 +197,8 @@ if(isset($_GET["task"]) && $_GET["task"] == "delete") {
           </div>
         </div>
         <div class="header-shop__iconwrapper">
-          <i class="fa-solid fa-cart-shopping header-shop__icon"></i>
+          <a id="mygiohang" href="./viewcart.php"><i class="fa-solid fa-cart-shopping header-shop__icon"></i></a>
+          
         </div>
       </div>
       <div class=" header-items">

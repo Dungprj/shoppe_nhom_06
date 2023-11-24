@@ -151,11 +151,13 @@ if (mysqli_num_rows($result)>0)
             <i class="fa-solid fa-magnifying-glass header-find__icon"></i>
           </div>
         </div>
-        
+        <!-- begin icon gio hang  -->
         <div class="header-shop__iconwrapper">
           <a id="mygiohang" href="./viewcart.php"><i class="fa-solid fa-cart-shopping header-shop__icon"></i></a>
           
         </div>
+
+        <!-- end icon gio hang  -->
       </div>
       <div class=" header-items">
         <ul class="header-items__wrapper">

@@ -190,8 +190,10 @@ if (mysqli_num_rows($result)>0)
           </div>
         </div>
         <div class="header-shop__iconwrapper">
-          <i class="fa-solid fa-cart-shopping header-shop__icon"></i>
+          <a id="mygiohang" href="./viewcart.php"><i class="fa-solid fa-cart-shopping header-shop__icon"></i></a>
+          
         </div>
+
       </div>
       <div class=" header-items">
         <ul class="header-items__wrapper">
@@ -212,7 +214,7 @@ if (mysqli_num_rows($result)>0)
 
       <div class="block_left_thongtin">
         <div class="bl_logo_ten" style="margin-bottom: 8% !important;">
-          <div class="logo-thongtin"> 
+          <div class="logo-thongtin" style="width:30%;"> 
             <img class="img_logo_thongtin" src="<?php echo $avata?>" alt="" style="border-radius: 50%;">
 
           </div>
