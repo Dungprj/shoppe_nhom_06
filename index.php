@@ -75,11 +75,8 @@
           <li><a href="#!"><i class="fa-solid fa-globe"></i></a></li>
           <li><a href="#!">Tiếng Việt</a></li>
           <li><a href="#!"><i class="fa-solid fa-chevron-down"></i></a></li>
-<<<<<<< HEAD
-          <li><a href="./admin/register.php">Đăng Ký</i></a></li>
-=======
+
           <li><a href="./register.php">Đăng Ký</i></a></li>
->>>>>>> a2a65cc9ef14aab3b839fc21e8bf2b7731286d07
           <li><a href="./login.php">Đăng Nhập</i></a></li>
         </ul>
       </div>
