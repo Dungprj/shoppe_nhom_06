@@ -212,20 +212,35 @@ if (isset($_SESSION["user_name"])&&$_SESSION["user_name"])
       <div class="section_content_header">
         <div class="image_carousel">
           <div class="image-carousel__item-list-wrapper">
-            <ul class="image-carousel__item-list">
-              <li class="image-carousel__item">
-                <a class="bl_a_item" href="./admin/ao_product.php">
-                  <div class="block_item">
-                    <div class="bl_image">
-                      <img class="edit_image" src="./img/ao.png" alt="" />
+          <ul class="image-carousel__item-list">
+            <?php
+            $select_query = "select * from tbl_category";
+            $result_query = mysqli_query($conn, $select_query);
+            while ($row = mysqli_fetch_assoc($result_query)) {
+              $cate_id = $row['id'];
+              $cate_name = $row['catename'];
+              $cate_image = $row['image'];
+              echo "
+              <li class='image-carousel__item'>
+                <a class='bl_a_item' href='./admin/ao_product.php?cate_id=$cate_id'>
+                  <div class='block_item'>
+                    <div class='bl_image'>
+                      <img class='edit_image' src='$cate_image' alt='' />
                     </div>
-                    <div class="image_txt">
-                      <div class="edit_text">Thời Trang Nam</div>
+                    <div class='image_txt'>
+                      <div class='edit_text'>$cate_name</div>
                     </div>
                   </div>
                 </a>
-              </li>
-              <li class="image-carousel__item">
+              </li>";
+            }
+            ?>
+          </ul>
+
+
+
+
+              <!-- <li class="image-carousel__item">
                 <a class="bl_a_item" href="">
                   <div class="block_item">
                     <div class="bl_image">
@@ -539,8 +554,8 @@ if (isset($_SESSION["user_name"])&&$_SESSION["user_name"])
                     </div>
                   </div>
                 </a>
-              </li>
-            </ul>
+              </li> -->
+            <!-- </ul> -->
           </div>
 
           <div class="arrow-prev" contenteditable="false">
