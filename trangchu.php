@@ -138,8 +138,10 @@ $_SESSION["admin"] = $admin;
             <i class="fa-solid fa-magnifying-glass header-find__icon"></i>
           </div>
         </div>
+        
         <div class="header-shop__iconwrapper">
-          <i class="fa-solid fa-cart-shopping header-shop__icon"></i>
+          <a id="mygiohang" href="./viewcart.php"><i class="fa-solid fa-cart-shopping header-shop__icon"></i></a>
+          
         </div>
       </div>
       <div class=" header-items">
@@ -606,67 +608,70 @@ $_SESSION["admin"] = $admin;
         <div class="image_carousel">
           <div class="image-carousel__item-list-wrapper">
             <ul class="image-carousel__item-list image-carousel__item-list_flash_sale">
-              <li class="image-carousel__item image-carousel__item_flash_sale">
-                <a class="bl_a_item" href="">
-                  <div class="block_item block_item_flash_sale">
-                    <div class="bl_image">
-                      <img class="edit_image edit_image_flash_sale"
-                        src="./img_flash_sale/vn-50009109-ccd7c730a1132b7e709b990c5db77769.png" alt="">
-                    </div>
-                    <div class="image_txt image_txt_price">
-                      <div class="edit_text edit_text_flash_sale">đ 24.300</div>
-                      <div class="bl_status_sell">
-                        <div class="row_status_flase_sale">
+              
+                <li class="image-carousel__item image-carousel__item_flash_sale">
+                  <a class="bl_a_item" href="./sanpham.php?idsp=1">
+                    <div class="block_item block_item_flash_sale">
+                      <div class="bl_image">
+                        <img class="edit_image edit_image_flash_sale"
+                          src="./img_flash_sale/vn-50009109-ccd7c730a1132b7e709b990c5db77769.png" alt="">
+                      </div>
+                      <div class="image_txt image_txt_price">
+                        <div class="edit_text edit_text_flash_sale">đ 24.300</div>
+                        <div class="bl_status_sell">
+                          <div class="row_status_flase_sale">
 
-                          <div class="status_flash_sale">
-                            <div class="bl_status_flash_sale">
-                              <div class="col-6 bar_status_sale"></div>
-                              <h3 class="txt_status_sell">
-                                ĐANG BÁN CHẠY 1
-                              </h3>
+                            <div class="status_flash_sale">
+                              <div class="bl_status_flash_sale">
+                                <div class="col-6 bar_status_sale"></div>
+                                <h3 class="txt_status_sell">
+                                  ĐANG BÁN CHẠY 1
+                                </h3>
+                              </div>
                             </div>
-                          </div>
 
+                          </div>
                         </div>
                       </div>
+
+
                     </div>
 
+                  </a>
 
-                  </div>
+                </li>
+              
+                <li class="image-carousel__item image-carousel__item_flash_sale">
+                  <a class="bl_a_item" href="./sanpham.php?idsp=2">
+                    <div class="block_item block_item_flash_sale">
+                      <div class="bl_image">
+                        <img class="edit_image edit_image_flash_sale"
+                          src="./img_flash_sale/vn-50009109-ccd7c730a1132b7e709b990c5db77769.png" alt="">
+                      </div>
+                      <div class="image_txt image_txt_price">
+                        <div class="edit_text edit_text_flash_sale">đ 24.300</div>
+                        <div class="bl_status_sell">
+                          <div class="row_status_flase_sale">
 
-                </a>
-
-              </li>
-              <li class="image-carousel__item image-carousel__item_flash_sale">
-                <a class="bl_a_item" href="">
-                  <div class="block_item block_item_flash_sale">
-                    <div class="bl_image">
-                      <img class="edit_image edit_image_flash_sale" src="./img_flash_sale/hinh3.png" alt="">
-                    </div>
-                    <div class="image_txt image_txt_price">
-                      <div class="edit_text edit_text_flash_sale">đ 24.300</div>
-                      <div class="bl_status_sell">
-                        <div class="row_status_flase_sale">
-
-                          <div class="status_flash_sale">
-                            <div class="bl_status_flash_sale">
-                              <div class="col-6 bar_status_sale"></div>
-                              <h3 class="txt_status_sell">
-                                ĐANG BÁN CHẠY2
-                              </h3>
+                            <div class="status_flash_sale">
+                              <div class="bl_status_flash_sale">
+                                <div class="col-6 bar_status_sale"></div>
+                                <h3 class="txt_status_sell">
+                                  ĐANG BÁN CHẠY 1
+                                </h3>
+                              </div>
                             </div>
-                          </div>
 
+                          </div>
                         </div>
                       </div>
+
+
                     </div>
 
+                  </a>
 
-                  </div>
-
-                </a>
-
-              </li>
+                </li>
               <li class="image-carousel__item image-carousel__item_flash_sale">
                 <a class="bl_a_item" href="">
                   <div class="block_item block_item_flash_sale">

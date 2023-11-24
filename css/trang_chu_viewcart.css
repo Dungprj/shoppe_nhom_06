@@ -865,11 +865,11 @@ a {
 }
 .bl_profile
 {
-  width: 10%;
-  height: 60%;
+  width: 150px;
+  height: 150px;
   position: absolute;
   background-color: #ffffff;
-  top: 25%;
+  top: 80%;
   right: 13%;
   z-index: 5;
   display: flex;

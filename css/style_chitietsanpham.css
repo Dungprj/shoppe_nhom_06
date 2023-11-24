@@ -1,0 +1,162 @@
+.container-chitetsanpham
+{
+    height: 800px;
+    border: 1px solid red;
+    margin-top: 5px;
+    
+}
+.form-sanpham_sanphamchitiet
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.img-sanpham_sanphamchitiet
+{
+    max-width: 40%;
+    height:auto;
+    
+}
+.rest-sanpham
+{
+    width: 50%;
+   
+    padding-left: 5%;
+}
+.ip_soluong_chitietsanpham
+{
+    width: 10%;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 10%;
+}
+
+.btn-quantity {
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.ip_soluong_chitietsanpham {
+    width: 50px;
+    text-align: center;
+}
+.bl_soluong
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.btn-quantity-giam
+{
+    width: 60%;
+}
+.btn-quantity-tang
+{
+    width: 60%;
+}
+
+#btn-dathang_sanphamchitiet
+{
+    
+}
+.bl_gia_chitietsanpham{
+    width: 100%;
+    display: flex;
+    justify-content:start;
+}
+.min-gia
+{
+    text-decoration: line-through;
+    color: #929292;
+    margin-right: 5%;
+}
+.max-gia
+{
+    font-size: 30px;
+    color: #d0011b;
+
+}
+.line-fomat
+{
+    width: 100%;
+    background-color: #f0451e;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    
+}
+.mgt-5
+{
+    margin-top: 5%;
+}
+.mgt-10
+{
+    margin-top: 10%;
+}
+.line-fomat p
+{
+    
+}
+.tensp
+{
+    
+}
+.bl-themvaogiohang-muahang
+{
+    width: 80%;
+    height: 8%;
+    display: flex;
+    justify-content: space-around;
+
+}
+.btn_themgiohang
+{
+    width: 40%;
+    height: 100%;
+    background: rgba(208,1,27,.08);
+    border: 1px solid red;
+    color: #d00136;
+}
+.btn_muangay
+{
+    width: 40%;
+    height: 100%;
+    background: #d0011b;
+    border: 1px solid red;
+    color: #ffffff;
+}
+.bl_container_description
+{
+    height: 600px;
+    border: 1px solid red;
+    margin-top: 5px;
+}
+.bl_description
+{
+   
+    
+    
+}
+.boxsp
+{
+    
+}
+
+.thongbaothemvaogio
+{
+    width: 500px;
+    height: 300px;
+    border: 1px solid red;
+    position: absolute;
+    z-index: 999;
+    background-color: #d0011b;
+    top:1px;
+
+    
+}

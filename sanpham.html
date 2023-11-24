@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add to cart</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./css/style_chitietsanpham.css">
+   
+</head>
+<body>
+    <div class="container-fluid bl_fex">
+        <div class="container">
+            <div class="boxsp container-chitetsanpham">
+                
+                <form action="addtocart.php" method="post" class="form-sanpham_sanphamchitiet">
+                    <img src="./img/dienthoai.webp" alt="" class="img-sanpham_sanphamchitiet">
+                    <div class="rest-sanpham">
+                        <h4 class="tensp mgt-5">Điện thoại 1 dsfsdf dsfsd fds df dsfdf dsf sdfds fdsf dsfdsf dsfdsfdsfd fdsfdsf </h4>
+                        <div class="line-fomat mgt-5"><p>Flash SALE</p></div>
+                        <div class="bl_gia_chitietsanpham mgt-5">
+                            <p class="min-gia">100000</p>
+                            <h3 class="max-gia">200000</h3>
+                        </div>
+                        <input type="hidden" name="img" value="./img/dienthoai.webp">
+                        <input type="hidden" name="tensp" value="Dien thoai 1">
+                        <input type="hidden" name="gia" value="13000000">
+                        <input type="hidden" name="id" value="1">
+                        <div class="bl_soluong mgt-5">
+                            <label for="quantity">Số lượng:  <input type="text" class="ip_soluong_chitietsanpham" name="quantity" id="quantity" value="1"></label>
+                            <div class="quantity-container">
+                                <input type="button" value="+" class="btn-quantity-tang" onclick="increaseQuantity()">
+                                <input type="button" value="-" class="btn-quantity-giam" onclick="decreaseQuantity()">
+                                
+                            </div>
+                        </div>
+                        
+                            
+                            
+                       
+                        
+                        <div class="bl-themvaogiohang-muahang mgt-10">
+                            <input class="btn_themgiohang" type="submit" name="dathang" value="Thêm Vào Giỏ Hàng" id="btn-dathang_sanphamchitiet">
+                            <input class="btn_muangay" type="submit" name="muahang" value="Mua Ngay">
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+
+        <div class="container bl_container_description">
+            <div class="bl_description">
+                <h2>CHI TIẾT SẢN PHẨM</h2>
+                <table>
+                    <tr>
+                        <td>Danh muc</td>
+                        <td>Thiet bi</td>
+                    </tr>
+                    <tr>
+                        <td>Xuat xu</td>
+                        <td>viet nam</td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+
+        
+    </div>
+
+    <script src="./js/js_chitietsanpham.js">
+       
+    </script>
+</body>
+</html>
+
+
+<!-- begin -->
+<div class="container-fluid bl_fex">
+    <div class="container">
+        <div class="boxsp container-chitetsanpham">
+            
+            <form action="addtocart.php" method="post" class="form-sanpham_sanphamchitiet">
+                <img src="./img/dienthoai.webp" alt="" class="img-sanpham_sanphamchitiet">
+                <div class="rest-sanpham">
+                    <h4 class="tensp mgt-5">Điện thoại 1 dsfsdf dsfsd fds df dsfdf dsf sdfds fdsf dsfdsf dsfdsfdsfd fdsfdsf </h4>
+                    <div class="line-fomat mgt-5"><p>Flash SALE</p></div>
+                    <div class="bl_gia_chitietsanpham mgt-5">
+                        <p class="min-gia">100000</p>
+                        <h3 class="max-gia">200000</h3>
+                    </div>
+                    <input type="hidden" name="img" value="./img/dienthoai.webp">
+                    <input type="hidden" name="tensp" value="Dien thoai 1">
+                    <input type="hidden" name="gia" value="13000000">
+                    <input type="hidden" name="id" value="1">
+                    <div class="bl_soluong mgt-5">
+                        <label for="quantity">Số lượng:  <input type="text" class="ip_soluong_chitietsanpham" name="quantity" id="quantity" value="1"></label>
+                        <div class="quantity-container">
+                            <input type="button" value="+" class="btn-quantity-tang" onclick="increaseQuantity()">
+                            <input type="button" value="-" class="btn-quantity-giam" onclick="decreaseQuantity()">
+                            
+                        </div>
+                    </div>
+                    
+                        
+                        
+                
+                    
+                    <div class="bl-themvaogiohang-muahang mgt-10">
+                        <input class="btn_themgiohang" type="submit" name="themvaogio" value="Thêm Vào Giỏ Hàng" id="btn-dathang_sanphamchitiet">
+                        <input class="btn_muangay" type="submit" name="dathang" value="Mua Ngay">
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+    <div class="container bl_container_description">
+        <div class="bl_description">
+            <h2>CHI TIẾT SẢN PHẨM</h2>
+            <table>
+                <tr>
+                    <td>Danh muc</td>
+                    <td>Thiet bi</td>
+                </tr>
+                <tr>
+                    <td>Xuat xu</td>
+                    <td>viet nam</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+    
+</div>
+</div>
