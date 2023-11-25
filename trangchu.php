@@ -116,7 +116,7 @@ if (mysqli_num_rows($result)>0)
           <li><a href="#!"><i class="fa-solid fa-globe"></i></a></li>
           <li><a href="#!">Tiếng Việt</a></li>
           <li><a href="#!"><i class="fa-solid fa-chevron-down"></i></a></li>
-          <li class="li_avata_trangchu"><img class="avata_trangchu" src="<?php echo $avata?>" alt=""></li>
+          <li class="li_avata_trangchu"><img class="avata_trangchu" src="./img_user/<?php echo $avata?>" alt=""></li>
           <li class="li_name_profile"><a href="./thongtin.php" style="padding:10px;" ><?php echo $username?></a>
             <div class="bl_hover_profile">
               <ul class="bl_profile">

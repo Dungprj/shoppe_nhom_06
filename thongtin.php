@@ -158,7 +158,7 @@ if (mysqli_num_rows($result)>0)
           <li><a href="#!"><i class="fa-solid fa-globe"></i></a></li>
           <li><a href="#!">Tiếng Việt</a></li>
           <li><a href="#!"><i class="fa-solid fa-chevron-down"></i></a></li>
-          <li class="li_avata_trangchu"><img class="avata_trangchu" src="<?php echo $avata?>" alt=""></li>
+          <li class="li_avata_trangchu"><img class="avata_trangchu" src="./img_user/<?php echo $avata?>" alt=""></li>
           <li class="li_name_profile"><a href="./thongtin.php" style="padding:10px;"><?php echo $username?></a>
             <div class="bl_hover_profile">
               <ul class="bl_profile">
@@ -215,7 +215,7 @@ if (mysqli_num_rows($result)>0)
       <div class="block_left_thongtin">
         <div class="bl_logo_ten" style="margin-bottom: 8% !important;">
           <div class="logo-thongtin" style="width:30%;"> 
-            <img class="img_logo_thongtin" src="<?php echo $avata?>" alt="" style="border-radius: 50%;">
+            <img class="img_logo_thongtin" src="./img_user/<?php echo $avata?>" alt="" style="border-radius: 50%;">
 
           </div>
           <div class="ten-thongtin">
@@ -346,7 +346,7 @@ if (mysqli_num_rows($result)>0)
                  
                   
                   if(isset($_POST["upload"])){
-                    $target_dir = "upload/";
+                    $target_dir = "./img_user/";
                     $target_file = $target_dir . basename($_FILES["upload_file"]["name"]);
                     
                     $uploadOk = 1;
@@ -376,8 +376,8 @@ if (mysqli_num_rows($result)>0)
                                   
                                  $avata = $target_file;
                                  
-                                 echo "<img src='$avata'  class='img-avata-profile-thongtin'>";
-                                 
+                                 echo '<img src="$avata"  class="img-avata-profile-thongtin">';
+
   
                               
                                 }
