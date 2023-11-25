@@ -208,7 +208,7 @@ if(isset($_SESSION["id_user"]))
         <div class="boxsp container-chitetsanpham" style="position: relative;">
 
             <form action="addtocart.php" method="post" class="form-sanpham_sanphamchitiet">
-                <img src='<?php echo $image;?>' alt="" class="img-sanpham_sanphamchitiet">
+            <img src="./img_product/<?php echo $image; ?>" alt="" class="img-sanpham_sanphamchitiet" style="object-fit: contain;">
                 <div class="rest-sanpham">
                     <h4 class="tensp mgt-5"><?php echo $name_sp;?></h4>
                     <div class="line-fomat mgt-5"><p>Flash SALE</p></div>

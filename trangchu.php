@@ -280,7 +280,7 @@ if (mysqli_num_rows($result)>0)
                   <a class='bl_a_item' href='./admin/ao_product.php?cate_id=$cate_id'>
                     <div class='block_item'>
                       <div class='bl_image'>
-                        <img class='edit_image' src='$cate_image' alt='' />
+                        <img class='edit_image' src='./img_danh_muc/$cate_image' alt='' />
                       </div>
                       <div class='image_txt'>
                         <div class='edit_text'>$cate_name</div>
@@ -329,10 +329,10 @@ if (mysqli_num_rows($result)>0)
                   $product_image = $row['image'];
                   echo "
                   <li class='image-carousel__item image-carousel__item_flash_sale'>
-                    <a class='bl_a_item' href='./sanpham.php?idsp=1'>
+                    <a class='bl_a_item' href='./sanpham.php?idsp=$product_id'>
                       <div class='block_item block_item_flash_sale'>
                         <div class='bl_image'>
-                          <img class='edit_image edit_image_flash_sale' src='./img_product/$product_image' alt='$product_name' width='100px'>
+                          <img class='edit_image edit_image_flash_sale' src='./img_product/$product_image' alt='$product_name' style='width:50px;'>
                         </div>
                         <div class='image_txt image_txt_price'>
                           <div class='edit_text edit_text_flash_sale'>đ $product_price</div>
