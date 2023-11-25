@@ -3,58 +3,13 @@
   require "../conect.php";
   require "./admin.php";
 
-
-
   if (!$_SESSION["user_name"])
-{
-  header("Location:../login.php");
-}
+  {
+    header("Location:../login.php");
+  }
 
   // Kiem tra xem nguoi dung da nhan nut them moi
   if(isset($_POST["btn_insert"])) {
-
-    $target_dir = "../upload/";
-    $target_file = $target_dir . basename($_FILES["upload_file"]["name"]);
-    
-    $uploadOk = 1;
-    //kiem tra dinh dang cua file upload
-    $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    if($fileType != "jpg" && $fileType != "png" && $fileType != "jpeg"&& $fileType != "gif" ) 
-    {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        $uploadOk = 0;
-    }
-    if ($uploadOk == 0) 
-    {
-        echo "Sorry, your file was not uploaded.";
-      // if everything is ok, try to upload file
-    } 
-    else 
-    {
-        if (move_uploaded_file($_FILES["upload_file"]["tmp_name"], $target_file)) {
-
-              try
-              {
-                $sql_update = "UPDATE tbl_user SET avata = '$target_file' WHERE username = '".$user_name."'";
-                if (mysqli_query($conn,$sql_update)>0)
-                {
-                  
-                  $avata = $target_file;
-                  
-                  echo "<img src='$avata'  class='img-avata-profile-thongtin'>";
-                }
-              }catch (Exception $e)
-              {
-                echo $e;
-              }
-        } 
-        else
-          {
-          echo "Sorry, there was an error uploading your file.";
-        }
-    }
-
-
 
     //lay du lieu tu o nhap nhieu
     $user_name = $_POST["txt_username"];
@@ -67,37 +22,56 @@
     $email = $_POST["txt_email"];
     $admin = $_POST["txt_admin"];
 
-
-
-    if ($password!=$re_password){
-      echo "Mat khau khong trung";
+    $target_dir = "../img_user/";
+    $target_file = $target_dir . basename($_FILES["upload_file"]["name"]);  
+    $uploadOk = 1;
+    //kiem tra dinh dang cua file upload
+    $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    if($fileType != "jpg" && $fileType != "png" && $fileType != "jpeg"&& $fileType != "gif" ) 
+    {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
     }
 
-    else{
-      $sql = "select * from tbl_user where username = '".$user_name."' ";
-      $result = mysqli_query($conn,$sql);
+    if ($uploadOk == 0) 
+    {
+        echo "Sorry, your file was not uploaded.";
+    } 
+    else 
+    {
+      if(move_uploaded_file($_FILES["upload_file"]["tmp_name"], $target_file)) {
+        $image_name = basename($_FILES["upload_file"]["name"]);
 
+        $sql_insert = "insert into tbl_user(username,password,name,email,phone,avata,gender,date_of_birth,admin) values('".$user_name."',md5('".$password."'),'".$fullname."','".$email."','".$phone."', '".$image_name."', '".$gender."','".$date_of_birth."','".$admin."')";
 
-      
-
-      if(mysqli_num_rows($result)>0){
-          echo "Ten dang nhap da ton tai";
-
+        if (mysqli_query($conn, $sql_insert)){
+          echo " dang ki thanh cong";
+          header("location:manage_user.php");
+        }
+        else{
+            echo "Error: " .$sql_insert . "br" . mysqli_error($conn);
+        }
+      } 
+      else
+        {
+        echo "Sorry, there was an error uploading your file.";
       }
-      else{
-          
-          $sql_insert = "insert into tbl_user(username,password,email,name,phone,gender,date_of_birth,avata,admin) values('".$user_name."',md5('".$password."'),'".$email."','".$fullname."','".$phone."','".$gender."','".$date_of_birth."','".$avata."','".$admin."')";
+    }
 
-          if (mysqli_query($conn, $sql_insert)){
-              echo " dang ki thanh cong";
-              header("location:manage_user.php");
+    // if ($password!=$re_password){
+    //   echo "Mat khau khong trung";
+    // }
 
-          }
-          else{
-              echo "Error: " .$sql_insert . "br" . mysqli_error($conn);
-          }
-      }
-  }
+    // else{
+    //   $sql = "select * from tbl_user where username = '".$user_name."' ";
+    //   $result = mysqli_query($conn,$sql);
+
+    //   if(mysqli_num_rows($result)>0){
+    //       echo "Ten dang nhap da ton tai";
+    //   }
+    //   else{         
+    //   }
+    // }
 }
 
   //xoa
@@ -133,7 +107,7 @@
           <form action="manage_user.php" method="post" enctype="multipart/form-data">
             <!-- <?php
               if(isset($_POST["upload"])) {
-                $target_dir = "../upload/";
+                $target_dir = "../img_user/";
                 $target_file = $target_dir . basename( $_FILES["upload_file"]["name"] );
                 // echo $target_file;
                 $uploadOk = 1;
@@ -180,7 +154,9 @@
             <br>
             <input type="text" placeholder="Admin" class="form-control" name="txt_admin" />
             <br>
-
+            Chọn ảnh đại diện cho người dùng:
+            <input class="form-control" type="file" name="upload_file" id="">
+            <br>
 
 
             <br>
@@ -264,9 +240,7 @@
                 {
                   echo "<tr>";
                   echo "<td>".$row["id_user"]."</td>";
-                  echo "<td>";
-                  echo '<img src="'.$row['avata'].'" height="70" width="70"/>';
-                  echo '</td>';
+                  echo "<td> <img style='width:100px;' src=../img_user/".$row["avata"]."></td>";
                   echo "<td>".$row["username"]."</td>";
                   echo "<td>".$row["password"]."</td>";
                   echo "<td>".$row["name"]."</td>";

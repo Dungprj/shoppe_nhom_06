@@ -27,8 +27,9 @@
     }
     else {
       if(move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+        $image_name = basename($_FILES["img"]["name"]); 
         $sql_insert = "insert into tbl_category(catename, image, status) 
-                  values(N'" .$cate_name. "', '".$target_file."', " .$status. ")";
+                  values(N'" .$cate_name. "', '".$image_name."', " .$status. ")";
         if(mysqli_query($conn, $sql_insert)) {
           header("location:manage_cate.php");
         } 

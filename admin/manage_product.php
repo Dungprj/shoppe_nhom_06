@@ -32,8 +32,9 @@
     }
     else {
       if(move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+        $image_name = basename($_FILES["img"]["name"]);
         $sql_insert = "insert into tbl_product(name, min_price, max_price, description, image, category, quantity) 
-                  values(N'" .$product_name. "', ".$product_minvalue.", ".$product_maxvalue.", '".$product_desc."',     '".$target_file."', ".$cate_id.", " .$product_quantity. ")";
+                  values(N'" .$product_name. "', ".$product_minvalue.", ".$product_maxvalue.", '".$product_desc."',     '".$image_name."', ".$cate_id.", " .$product_quantity. ")";
         if(mysqli_query($conn, $sql_insert)) {
           header("location:manage_product.php");
         } 
