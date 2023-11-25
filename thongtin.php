@@ -348,7 +348,7 @@ if (mysqli_num_rows($result)>0)
                   if(isset($_POST["upload"])){
                     $target_dir = "./img_user/";
                     $target_file = $target_dir . basename($_FILES["upload_file"]["name"]);
-                    
+                    $image_name = basename($_FILES["upload_file"]["name"]);
                     $uploadOk = 1;
                     //kiem tra dinh dang cua file upload
                     $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -367,16 +367,17 @@ if (mysqli_num_rows($result)>0)
                         if (move_uploaded_file($_FILES["upload_file"]["tmp_name"], $target_file)) {
 
                           
-                             
+                            
                               try
                               {
-                                $sql_update = "UPDATE tbl_user SET avata = '$target_file' WHERE username = '".$username."'";
+                                $sql_update = "UPDATE tbl_user SET avata = '$image_name' WHERE username = '".$username."'";
                                 if (mysqli_query($conn,$sql_update)>0)
                                 {
                                   
-                                 $avata = $target_file;
-                                 
-                                 echo '<img src="$avata"  class="img-avata-profile-thongtin">';
+
+                                  $avata = $image_name;
+                                  
+                                  echo '<img src="./img_user/'.$avata.'"  class="img-avata-profile-thongtin">';
 
   
                               
@@ -400,7 +401,8 @@ if (mysqli_num_rows($result)>0)
                   }else
                   {
                     
-                    echo "<img src='$avata'  class='img-avata-profile-thongtin'>";
+                    echo '<img src="./img_user/'.$avata.'"  class="img-avata-profile-thongtin">';
+                  
                   }
                   
                  
