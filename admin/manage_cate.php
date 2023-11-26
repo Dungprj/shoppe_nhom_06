@@ -225,6 +225,9 @@
         </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-12" id="result"></div>
+      </div>
     </div>
     
     
@@ -241,12 +244,12 @@
               data:{input:input},
 
               success:function(data) {
-                $("#searchresult").html(data);
-                $("#searchresult").css("display", "block");
+                $("#result").html(data);
+                $("#result").css("display", "block");
               }
             });
           } else {
-            $("#searchresult").css("display", "none");
+            $("#result").css("display", "none");
           }
         });
       })
