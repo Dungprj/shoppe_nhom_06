@@ -49,7 +49,8 @@
           header("location:manage_user.php");
         }
         else{
-            echo "Error: " .$sql_insert . "br" . mysqli_error($conn);
+            // echo "Error: " .$sql_insert . "br" . mysqli_error($conn);
+            echo "Đăng kí KHÔNG thành công !!!";
         }
       } 
       else
@@ -58,20 +59,7 @@
       }
     }
 
-    // if ($password!=$re_password){
-    //   echo "Mat khau khong trung";
-    // }
 
-    // else{
-    //   $sql = "select * from tbl_user where username = '".$user_name."' ";
-    //   $result = mysqli_query($conn,$sql);
-
-    //   if(mysqli_num_rows($result)>0){
-    //       echo "Ten dang nhap da ton tai";
-    //   }
-    //   else{         
-    //   }
-    // }
 }
 
   //xoa
@@ -82,7 +70,8 @@
       echo "Xoa thanh cong";
       header("location:manage_user.php");
     } else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      echo "Xóa KHÔNG thành công !!!";
     }
   }
 
