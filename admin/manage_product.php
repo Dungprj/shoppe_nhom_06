@@ -143,6 +143,7 @@
             $result = mysqli_query($conn, 'select count(id) as total from tbl_product');
             $row = mysqli_fetch_assoc($result);
             $total_records = $row['total'];
+
             //tim limit va current page
             $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
             $limit = 5;
