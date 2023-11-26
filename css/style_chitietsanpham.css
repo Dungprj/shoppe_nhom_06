@@ -150,13 +150,47 @@
 
 .thongbaothemvaogio
 {
-    width: 500px;
-    height: 300px;
+    width: 400px;
+    height: 250px;
+    display: flex;
     border: 1px solid red;
     position: absolute;
     z-index: 999;
-    background-color: #d0011b;
-    top:1px;
+    border: 2px solid #333; /* Màu sắc và độ rộng của border */
+    border-radius: 10px; /* Độ cong của góc border */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); 
+    background-color: #3f3738;
+    top: 25%;
+    right: 35%;
+   
+    
 
     
+}
+.thongbaothemvaogio
+{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+}
+
+.bl_tron
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.icon-check
+{
+    font-size: 35px;
+}
+.txt-thongbaothemvaogiohang
+{
+    font-size: 22px;
+    color: #ffffff;
 }

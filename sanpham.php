@@ -216,10 +216,10 @@ if(isset($_SESSION["id_user"]))
                         <p class="min-gia"><?php echo $min_price;?></p>
                         <h3 class="max-gia"><?php echo $max_price;?></h3>
                     </div>
-                    <input type="hidden" name="img" value='<?php echo $image;?>'>
-                    <input type="hidden" name="tensp" value='<?php echo $name_sp;?>'>
-                    <input type="hidden" name="gia" value=<?php echo $min_price?>>
-                    <input type="hidden" name="id" value=<?php echo $id_sp?>>
+                    <input class="src_img"  type="hidden" name="img" value='./img_product/<?php echo $image;?>'>
+                    <input class="ten_sp" type="hidden" name="tensp" value='<?php echo $name_sp;?>'>
+                    <input class="min_price" type="hidden" name="gia" value=<?php echo $min_price?>>
+                    <input class="id_sp" type="hidden" name="id" value=<?php echo $id_sp?>>
                     <div class="bl_soluong mgt-5">
                         <label for="quantity">Số lượng:  <input type="text" class="ip_soluong_chitietsanpham" name="quantity" id="quantity" value="1"></label>
                         <div class="quantity-container">
@@ -234,26 +234,67 @@ if(isset($_SESSION["id_user"]))
                 
                     
                     <div class="bl-themvaogiohang-muahang mgt-10">
-                        <input class="btn_themgiohang" type="submit" name="themvaogio" value="Thêm Vào Giỏ Hàng" id="btn-dathang_sanphamchitiet">
+                        <input class="btn_themgiohang" type="button" name="themvaogio" value="Thêm Vào Giỏ Hàng" id="btn-dathang_sanphamchitiet">
                         <input class="btn_muangay" type="submit" name="dathang" value="Mua Ngay">
                     </div>
                     
                 </div>
             </form>
-            <div class="thongbaothemvaogio" style="width: 300px;
-    position: absolute;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 30%;
-    right: 30%;
-    background-color: #e1ded9;
-    color: #1f933a;
-    z-index: 9999999;
-    display: none;
-    ">
-              <h1>Thêm vào giỏ hành thành công !</h1>
+            
+            <script type="text/javascript" src="jquery-3.7.1.min.js"></script>
+            <script type="text/javascript">
+              $(document).ready(function()
+              {
+               
+                $(".btn_themgiohang").click(function(){
+
+                  var src_img = $(".src_img").val();
+                  var ten_sp = $(".ten_sp").val();
+                  var min_price = $(".min_price").val();
+                  
+                  var id_sp = $(".id_sp").val();
+                  var soluong = $("#quantity").val();
+                  
+
+
+                  $.post("addtocart.php",{img:src_img,tensp:ten_sp,gia:min_price,id:id_sp,quantity:soluong,themvaogio:true },function(data){
+                      
+                    $('.thongbaothemvaogio').fadeIn().css('display', 'flex');
+
+           
+                setTimeout(function() {
+                    $('.thongbaothemvaogio').fadeOut();
+                }, 3000);
+                })
+
+
+                  
+                })
+
+              })
+
+            </script>
+
+
+
+
+
+            
+            
+            <div class="thongbaothemvaogio" >
+                  <div class="circle bl_tron" style=" width: 80px;
+            height: 80px;
+            background-color: #3dc284; /* Màu sắc của hình tròn */
+            border-radius: 50%; 
+            display:flex;"
+            >
+                  <i class="fa-solid fa-check icon-check" style="color: #ffffff; "></i>
+              
+          </div>
+
+              <h2 class="txt-thongbaothemvaogiohang">Thêm sản phẩm vào giỏ hàng thành công !</h2>
+              
+              
             </div>
         </div>
     </div>
@@ -667,7 +708,7 @@ if(isset($_SESSION["id_user"]))
 </body>
 
 
-<!-- <script src="./js/main.js"></script> -->
+<!-- <script src="./js/main.js"></scrip> -->
 <script src="./js/address.js"></script>
 <script src="./js/js_chitietsanpham.js"></script>
 

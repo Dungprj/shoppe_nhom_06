@@ -17,7 +17,3 @@ let thongbao = document.querySelector(".thongbaothemvaogio");
 let btn_themgiohang = document.querySelector(".btn_themgiohang");
 
 
-btn_themgiohang.onclick  = function()
-{
-    thongbao.style.display = "flex";
-}
