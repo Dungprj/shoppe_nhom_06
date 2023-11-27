@@ -185,13 +185,13 @@
             <?php
 
               $sql = "";
-              if(isset($_POST["btn_search"])) {
-                $sql = "select * from tbl_user where username like '%".$_POST["txt_search"]."%'";
-              } 
-              else {
-                // include
-                $sql = "select * from tbl_user order by id_user asc";
-              }
+              // if(isset($_POST["btn_search"])) {
+              //   $sql = "select * from tbl_user  where username like '%".$_POST["txt_search"]."%'" ;
+              // } 
+              // else {
+              //   // include
+              //   $sql = "select * from tbl_user order by id_user desc";
+              // }
               
 
               // $result = mysqli_query($conn,$sql);
@@ -217,10 +217,22 @@
       
               // Tìm Start
               $start = ($current_page - 1) * $limit;
-      
+              
+
+              $sql = "";
+              if(isset($_POST["btn_search"])) {
+                $sql = "select * from tbl_user  where username like '%".$_POST["txt_search"]."%' LIMIT $start, $limit ";
+              } 
+              else {
+                // include
+                $sql = "select * from tbl_user order by id_user asc LIMIT $start, $limit ";
+              }
+
+
               // BƯỚC 5: TRUY VẤN LẤY DANH SÁCH TIN TỨC
               // Có limit và start rồi thì truy vấn CSDL lấy danh sách tin tức
-              $result = mysqli_query($conn, "SELECT * FROM tbl_user LIMIT $start, $limit");
+              $result = mysqli_query($conn, $sql);
+              // $result = mysqli_query($conn, "SELECT * FROM tbl_user LIMIT $start, $limit");
 
               if (mysqli_num_rows($result)>0)
               {
