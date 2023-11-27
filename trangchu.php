@@ -342,7 +342,7 @@ if (mysqli_num_rows($result)>0)
                                 <div class='bl_status_flash_sale'>
                                   <div class='col-6 bar_status_sale'></div>
                                   <h3 class='txt_status_sell'>
-                                    ĐANG BÁN CHẠY 1
+                                    ĐANG BÁN CHẠY
                                   </h3>
                                 </div>
                               </div>

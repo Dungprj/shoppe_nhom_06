@@ -65,12 +65,23 @@ if (isset($_SESSION["user_name"]))
 }
 
 
-if(isset($_POST["dongydathang"]) && isset($_SESSION["cart"])&&sizeof($_SESSION["cart"]) > 0)
+
+if(isset($_POST["dongydathang"]) && isset($_SESSION["cart"])&&sizeof($_SESSION["cart"]) > 0 && isset($_POST["address_user_dathang"]))
+{
+
+}else
+{
+  echo "<script>alert('Chưa có địa chỉ nhận hàng'); window.location.href = './trangchu.php';</script>";
+  // Kết thúc quá trình thực thi để đảm bảo không có mã PHP hoặc đầu ra khác được gửi sau đó
+  exit;
+}
+if(isset($_POST["dongydathang"]) && isset($_SESSION["cart"])&&sizeof($_SESSION["cart"]) > 0 )
     {
         //lay thong tin khach hang
     $name;
     $address;
     $tel;
+    
     $id_address_nhanhang = $_POST["address_user_dathang"];
     // begin lay thong tin dia chi nhan hang
     $sql = "SELECT * FROM tbl_address_user WHERE id = " . intval($id_address_nhanhang);
@@ -152,7 +163,7 @@ if(isset($_POST["dongydathang"]) && isset($_SESSION["cart"])&&sizeof($_SESSION["
         
     }else
     {
-        
+      
         header("Location:./trangchu.php");
         
     }

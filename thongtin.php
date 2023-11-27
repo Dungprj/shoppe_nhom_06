@@ -352,11 +352,17 @@ if (mysqli_num_rows($result)>0)
                     $uploadOk = 1;
                     //kiem tra dinh dang cua file upload
                     $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                    $maxFileSize = 1048576*2;
                     if($fileType != "jpg" && $fileType != "png" && $fileType != "jpeg"&& $fileType != "gif" ) 
                     {
-                        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                      echo "<script>alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed.'); window.location.href = './thongtin.php';</script>";
+                        
                         $uploadOk = 0;
                     }
+                    if ($_FILES["upload_file"]["size"] > $maxFileSize) {
+                      echo "<script>alert('Dung lượng file quá lớn. Vui lòng tải lên file có dung lượng tối đa 1MB'); window.location.href = './thongtin.php';</script>";
+                      $uploadOk = 0;
+                      }
                     if ($uploadOk == 0) 
                     {
                         echo "Sorry, your file was not uploaded.";
@@ -378,6 +384,7 @@ if (mysqli_num_rows($result)>0)
                                   $avata = $image_name;
                                   
                                   echo '<img src="./img_user/'.$avata.'"  class="img-avata-profile-thongtin">';
+                                  echo "<script>window.location.href = './thongtin.php';</script>";
 
   
                               
