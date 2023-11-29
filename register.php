@@ -24,7 +24,7 @@
 
             }
             else{
-                $sql_insert = "insert into tbl_user(username,password,email,name,status,admin) values('".$user_name."',md5('".$password."'),'".$email."','".$fullname."',1,0)";
+                $sql_insert = "insert into tbl_user(username,password,email,name,admin) values('".$user_name."',md5('".$password."'),'".$email."','".$fullname."',0)";
                 if (mysqli_query($conn, $sql_insert)){
                     echo " dang ki thanh cong";
                     header("location:login.php");

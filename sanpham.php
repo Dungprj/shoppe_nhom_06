@@ -1,15 +1,54 @@
 <?php
 require "./conect.php";
-
+require "./myfunc.php";
 session_start();
 
-$name_sp;
-$min_price;
-$max_price;
-$description;
-$image;
-$category;
-$quantity;
+// begin check session
+if (!$_SESSION["user_name"])
+{
+  header("Location:./login.php");
+}
+
+$id_sanpham_hientai;
+
+$sql = "select * from tbl_user where username = '".$_SESSION["user_name"]."' ";
+$user_id;
+$username;
+$name;
+$email;
+$phone;
+$avata;
+$gender;
+$data_of_birth;
+$admin;
+$result = mysqli_query($conn,$sql);
+
+
+if (mysqli_num_rows($result)>0)
+{
+	while ($row = mysqli_fetch_assoc($result))
+	{
+      $user_id = $row["id_user"];
+      $username = $row["username"];
+      $name = $row["name"];
+      $email = $row["email"];
+      $phone = $row["phone"];
+      $avata = $row["avata"];
+      $gender = $row["gender"];
+      $data_of_birth = $row["date_of_birth"];
+      $admin = $row["admin"];
+
+  }
+  $_SESSION["id_user"] = $user_id;
+  $_SESSION["admin"] = $admin;
+}
+
+// end check session
+
+
+
+
+
 
 
 if ($_GET["idsp"])
@@ -35,6 +74,17 @@ if ($_GET["idsp"])
 
   
 }
+
+
+// cehck admin
+$style_edit_xoa = "display:none;";
+if($_SESSION["admin"]==1)
+{
+  $style_edit_xoa = "display:flex;";
+}
+
+
+// kiem tra dang nhap
 
 if (!$_SESSION["user_name"])
 {
@@ -78,6 +128,54 @@ if(isset($_SESSION["id_user"]))
 }
 
 
+// begin phan trang
+
+$tongsobanghi;
+
+$tranghientai = 1;
+
+$limit = 4;
+$sql = "select count(id) as total from tbl_binhluan where id_sanpham = $id_sp";
+$result = mysqli_query($conn,$sql);
+
+if (mysqli_num_rows($result)>0)
+{
+	while ($row = mysqli_fetch_assoc($result))
+  {
+    $tongsobanghi = $row['total'];
+  }
+
+}
+if($tongsobanghi>0)
+{
+  $tongsotrang = ceil($tongsobanghi / $limit);
+}else
+{
+  $tongsotrang = 1;
+}
+
+
+
+
+
+if(isset($_GET["page"]))
+{
+  $tranghientai = $_GET["page"];
+}
+
+if($tranghientai > $tongsotrang)
+{
+  $tranghientai = $tongsotrang;
+}else if ($tranghientai < 1)
+{
+  $tranghientai = 1;
+}
+
+$start = ($tranghientai - 1) * $limit;
+
+
+
+// end phan trang
 
 
 ?>
@@ -97,6 +195,11 @@ if(isset($_SESSION["id_user"]))
   <link rel="stylesheet" href="./css/address_sanpham.css">
   <link rel="stylesheet" href="./css/trang_chu.css">
   <link rel="stylesheet" href="./css/style_chitietsanpham.css">
+  <link rel="stylesheet" href="./css/binhluan.css">
+  <link rel="stylesheet" href="./css/phantrang_sanpham.css">
+
+
+
 
 
 
@@ -161,12 +264,30 @@ if(isset($_SESSION["id_user"]))
           <li><a href="#!"><i class="fa-solid fa-globe"></i></a></li>
           <li><a href="#!">Tiếng Việt</a></li>
           <li><a href="#!"><i class="fa-solid fa-chevron-down"></i></a></li>
-          <li class="li_avata_trangchu"><img class="avata_trangchu" src="<?php echo $avata?>" alt=""></li>
+          <li class="li_avata_trangchu"><img class="avata_trangchu" src="./img_user/<?php echo $avata?>" alt=""></li>
           <li class="li_name_profile"><a href="./thongtin.php" style="padding:10px;"><?php echo $username?></a>
+          <input id="id_user" type="hidden" name="<?php echo $id_user?>" style_edit_xoa="<?php echo $style_edit_xoa?>" value="<?php echo $id_user?>">
             <div class="bl_hover_profile">
               <ul class="bl_profile">
                 <li id="li_name_profile"><a id="a_txt_myacount" href="./thongtin.php">My account</a></li>
+                
                 <li id="li_logout"><a id="a_txt_logout" href="./logout.php">Logout</a></li>
+
+                <!-- begin check admin -->
+                <!-- <?php
+                if (isset($_SESSION['admin']) == true) {
+                  // Ngược lại nếu đã đăng nhập
+                  $admin = $_SESSION['admin'];
+                  // Kiểm tra quyền của người đó có phải là admin hay không
+                  if ($admin == 1) {
+                    // Nếu không phải admin thì xuất thông báo
+                    echo '<li id="li_admin"><a id="a_txt_admin" href="./admin/manage_user.php">Admin</a></li>';
+                    
+                  }
+                }
+                ?> -->
+
+                <!-- end check admin -->
               </ul>
             </div>
           </li>
@@ -302,7 +423,9 @@ if(isset($_SESSION["id_user"]))
 
     <div class="container bl_container_description">
         <div class="bl_description">
+        <br>
             <h2>CHI TIẾT SẢN PHẨM</h2>
+            <br>
             <table>
                 <tr>
                     <td>Danh muc</td>
@@ -314,9 +437,462 @@ if(isset($_SESSION["id_user"]))
                 </tr>
             </table>
 
+            <div class="bl_img_description">
+            <img src="./img_product/<?php echo $image; ?>" alt="" class="img-sanpham_sanphamchitiet" style="margin-top: 5%;">
+            </div>
+
         </div>
 
+        <!-- bl binh luan  -->
+
+        
+
     </div>
+
+
+    
+    <!-- begin upload binh loan -->
+
+    <div class="container bl_container_nhap_binhluan">
+
+          <div class="left_nhapbinhluan">
+            <img class="avata_nhapbinhluan" src="./img_user/<?php echo $avata?>" alt="">
+
+          </div>
+
+          <div class="right_nhapbinhluan">
+            <div class="bl_nhapbinhluan">
+              <input id="input_nhapbinhluan" class="bl_media_inp_nhapbinhluan form-control" type="text">
+              <div class="block_send_media_and_text">
+                <div class="media_binhluan">
+                  <input type="file" id="fileInput" multiple style="display: none;" enctype="multipart/form-data">
+                  <label for="fileInput" class="file-upload-btn">
+                    <i class="fa-solid fa-image img_gui_binhluan" style="color: #804242;"></i>
+                  </label>
+
+
+
+
+
+
+                </div>
+                <div class="btn_gui_binhluan">
+                  <button id="btn_gui" class="btn_gui_binhluan"><i class="icon_gui_binhluan fa-solid fa-paper-plane"
+                      style="color: #f22121;"></i></button>
+                </div>
+              </div>
+              <!-- begin anh tai len -->
+
+              <div id="selectedImagesContainer" class="bl_list_img_guibinhluan">
+
+              </div>
+
+              <!-- end anh tai len -->
+
+            </div>
+
+
+          </div>
+
+          <script>
+                      function displaySelectedImages(imagePaths) {
+              var selectedImagesContainer = $('#selectedImagesContainer');
+              selectedImagesContainer.empty(); // Xóa nội dung hiện tại
+
+              imagePaths.forEach(function(imagePath) {
+                  var imgContainer = $('<div>').addClass('bl_img_gui_binhluan').css('height', '68px');
+
+                  var imgElement = $('<img>').attr('src', imagePath).addClass('img_gui_binhluan');
+
+                  var deleteButton = $('<button>').addClass('circel_xoa_anh_guibinhluan');
+                  deleteButton.html('<i class="fa-solid fa-x" style="color: #ff0c0c;"></i>');
+                  deleteButton.click(function() {
+                      // Xóa hình ảnh khi nút xóa được nhấn
+                      imgContainer.remove();
+
+                      
+                      
+                  });
+
+                  imgContainer.append(imgElement);
+                  imgContainer.append(deleteButton);
+
+                  selectedImagesContainer.append(imgContainer);
+              });
+          }
+
+          function getRemainingImages() {
+              var remainingImages = [];
+              $('#selectedImagesContainer img').each(function() {
+                  remainingImages.push($(this).attr('src'));
+              });
+              return remainingImages;
+          }
+
+          
+
+          function updateDatabase(remainingImages,id_binhluan_vuatao) {
+              // Gửi yêu cầu cập nhật cơ sở dữ liệu với danh sách ảnh còn lại
+              $.ajax({
+                  url: 'update_img_database.php',
+                  type: 'POST',
+                  data: { images: remainingImages,id_binhluan:id_binhluan_vuatao },
+                  success: function(response) {
+                      // Cập nhật cơ sở dữ liệu thành công (nếu cần)
+                     
+                      
+                  }
+              });
+          }
+
+          $(document).ready(function() {
+
+             // begin gui
+             let btn_guibinhluan = $("#btn_gui");
+             let noidungbinhluan = $("#input_nhapbinhluan");
+             let id_sp = $(".id_sp").val();
+              let id_user = $('#id_user').val();
+
+          
+
+                    btn_guibinhluan.click(function() {
+
+                      
+                      
+                      
+                      
+                     
+                        $.ajax({
+                      url: 'upload_img_binhluan.php',
+                      type: 'POST',
+                      data: { send: true,noidungbinhluan:noidungbinhluan.val(),id_sp:id_sp,id_user:id_user},
+                      success: function(response) {
+                        // Cập nhật cơ sở dữ liệu
+                        
+
+                      var remainingImages = getRemainingImages();
+                      if (getRemainingImages().length > 0)
+                      {
+                        updateDatabase(remainingImages,response);
+                        location.reload(); 
+                      }else{
+                        location.reload(); 
+                      }
+
+                          // Cập nhật cơ sở dữ liệu thành công (nếu cần)
+                        
+                      }
+                  });
+                    });
+                    // end gui
+
+              $('#fileInput').change(function() {
+                  var files = $('#fileInput')[0].files;
+                  var formData = new FormData();
+
+                  for (var i = 0; i < files.length; i++) {
+                      formData.append('files[]', files[i]);
+                  }
+                  var numberOfElements = Array.from(formData.entries()).length;
+
+                  if(numberOfElements >9)
+                  {
+                    alert("Chỉ được chọn tối đa 9 ảnh ");
+                  }else
+                  {
+
+                   
+                    formData.append('content', 'helo');
+
+                        $.ajax({
+                      url: 'upload_img_binhluan.php',
+                      type: 'POST',
+                      data: formData,
+                      contentType: false,
+                      processData: false,
+                      success: function(response) {
+                          // Chuyển đổi chuỗi JSON thành mảng đường dẫn hình ảnh
+                         var bl_container_nhap_binhluan = $(".bl_container_nhap_binhluan").css('height', '275px');
+
+                          var imagePaths = JSON.parse(response);
+
+                          
+
+                            displaySelectedImages(imagePaths);
+                        }
+                    });
+                  }
+                  
+              });
+          });
+
+          </script>
+
+
+
+
+        </div>
+
+        <!-- end upload binh loan -->
+
+    <div class="container bl_container_binhluan">
+
+              
+
+          <!-- begin hien thi list binh luan  -->
+              <?php echo hienthibinhluan($id_sp,$user_id,$start,$limit)?>
+              
+          <!-- end hien thi list binh luan -->
+
+    </div>
+    
+    <!-- begin btn phan trang -->
+    <div class="container-fluid bl-phantrang">
+          <div class="lb_btn_phantrang">
+            <?php
+            
+            $trang_prev = $tranghientai-1;
+            if ($trang_prev == 0)
+            {
+              $trang_prev = 1;
+            }
+            $trang_next = $tranghientai+1;
+            if ($trang_next == 0)
+            {
+              $trang_next = 1;
+            }
+            
+
+            
+
+            //
+            echo "<button type='submit' class='btn-phantrang btn btn-light' >";
+            // echo "<a href='http://localhost/unitop-php/thuchanh/admin/index.php?page=".$trang_prev."' >prev</a>";
+            echo "<a href='./sanpham.php?idsp=$id_sp&page=".$trang_prev."' ><</a>";
+
+            
+          echo "</button>";
+            //
+            for ($i = 1; $i <= $tongsotrang;$i++)
+            {
+              // style='background-color: #EE4D2D;'
+
+              echo "<button type='submit' class='btn-phantrang btn btn-light trangchuachon' >";
+            // echo "<a href='http://localhost/unitop-php/thuchanh/admin/index.php?page=".$i."' >$i</a>";
+
+            // style='color: #fff;'
+            echo "<a  href='./sanpham.php?idsp=$id_sp&page=".$i."'>$i</a>";
+
+          echo "</button>";
+            }
+
+            echo "<button type='submit' class='btn-phantrang btn btn-light' >";
+            // echo "<a href='http://localhost/unitop-php/thuchanh/admin/index.php?page=".$trang_next."' >prev</a>";
+            echo "<a href='./sanpham.php?idsp=$id_sp&page=".$trang_next."' >></a>";
+          echo "</button>";
+
+         
+            
+            ?>
+            
+           
+          </div>
+        </div>
+
+    <!-- end btn phan trang -->
+    
+    
+
+
+
+    
+          <!-- ajax binh luan -->
+        <script type="text/javascript" src="jquery-3.7.1.min.js"></script>
+            <script type="text/javascript">
+
+
+            
+
+
+           
+            
+            
+              
+            
+
+
+
+              var id_user = $('#id_user').attr('name');
+              // begin load binh luan
+
+
+
+
+              // end load binh luan
+
+              $(document).ready(function()
+              {
+
+              
+
+                
+
+              
+
+
+
+
+                var btn_like = $(this);
+                //begin load trang thai like
+                $(".btn-like_binhluan").each(function(index,element) {
+                  var id_binhluan =  $(this).attr("name");
+                  $.post("xuly_binhluan.php",{id_user_binhluan:id_user,id_binhluan:id_binhluan,checked_like:true},function(data){
+                    if(data)
+                    {
+                      $(element).addClass("liked");
+                    }
+                  });
+
+                });
+
+                 
+                  
+
+
+                
+
+                  
+                
+
+                //end load trang thai like
+
+               
+                $(".btn-like_binhluan").each(function() {
+                   let id_sp = $(".id_sp").val();
+
+
+                 
+                  
+                 $(this).click(function() {
+                    
+                    
+                    if ($(this).hasClass("liked")) {
+                      var id_binhluan_vs2 =  $(this).attr("name");
+                      let soluotlike1 = $('.bl_soluotlike[name="id_btn_like_'.concat(id_binhluan_vs2)+'"]');
+                      $(this).removeClass("liked");
+                      $.post("xuly_binhluan.php",{id_user_binhluan:id_user,disliked:true,id_binhluan:id_binhluan_vs2},function(data){
+
+                        
+                        $.post("xuly_binhluan.php",{id_binhluan:id_binhluan_vs2,soluonglike:true},function(data6){
+
+                          
+
+                      soluotlike1.text(data6);
+
+                      });
+
+
+
+                      });
+
+
+                    
+
+                    } else {
+                      var id_binhluan =  $(this).attr("name");
+                    // alert(id_binhluan);
+                    let soluotlike = $('.bl_soluotlike[name="id_btn_like_'.concat(id_binhluan)+'"]');
+                        $(this).addClass("liked");
+                        $.post("xuly_binhluan.php",{id_user_binhluan:id_user,id_binhluan:id_binhluan,liked:true},function(data){
+
+                          
+                          $.post("xuly_binhluan.php",{id_binhluan:id_binhluan,soluonglike:true},function(data2){
+
+                            soluotlike.text(data2);
+
+                            });
+                          
+                        
+                          
+                        });
+
+                    }
+
+
+                  
+                    
+                    
+                      });
+                  });
+
+
+
+                   // block edit binh luan| edit-xoa_binhluan
+
+                  // begin xoa binh luan
+                  $(".edit-xoa_binhluan").each(function() {
+                    let id_sp = $(".id_sp").val();
+                    
+
+                    $(this).click(function() {
+                      let id_binhluan_edit_xoa = $(this).attr("name");
+                      let id_user_binhluan = $(this).attr("id_user_binhluan");
+                      let style_edit_xoa = $('#id_user').attr('name');
+                      let id_user_dangsudung = $('#id_user').val();
+                      
+                    
+                      $.post("xuly_binhluan.php",{id_user_dangsudung:id_user_dangsudung,id_binhluan:id_binhluan_edit_xoa,id_sanpham:id_sp,id_user_binhluan:id_user_binhluan,style_edit_xoa:style_edit_xoa,xoa_binhluan:true},function(data){
+
+                        
+                        location.reload(); 
+                       
+
+                    });
+                    });
+
+
+                    
+                    
+
+
+                });
+                 // end xoa binh luan
+
+
+                    // begin hien thi edit binh luan
+                    $(".btn-edit_binhluan").each(function() {
+                    let id_binhluan_edit = $(this).attr("name");
+                    
+                    let divElement = $(`.list-edit_binhluan[name="${id_binhluan_edit}"]`);
+
+                    $(this).click(function() {
+                        // Kiểm tra xem nút đã có class "opend-edit_binhluan" hay chưa
+                        if (divElement.hasClass("opend-edit_binhluan")) {
+                            divElement.removeClass("opend-edit_binhluan");
+                        } else {
+                            divElement.addClass("opend-edit_binhluan");
+                        }
+                    });
+
+
+                });
+
+                // end hien thi edit binh luan
+
+
+
+              })
+
+
+             
+
+
+
+             
+
+              
+
+            </script>
 
         </div>
     </div>
