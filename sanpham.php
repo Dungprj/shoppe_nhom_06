@@ -326,7 +326,7 @@ $start = ($tranghientai - 1) * $limit;
         <div class="bl-main_thongtin">
 
         <div class="container">
-        <div class="boxsp container-chitetsanpham" style="position: relative;">
+        <div class="boxsp container-chitetsanpham" style="position: relative; border:none !important;">
 
             <form action="addtocart.php" method="post" class="form-sanpham_sanphamchitiet">
             <img src="./img_product/<?php echo $image; ?>" alt="" class="img-sanpham_sanphamchitiet" style="object-fit: contain;">
@@ -421,7 +421,7 @@ $start = ($tranghientai - 1) * $limit;
     </div>
     
 
-    <div class="container bl_container_description">
+    <div class="container bl_container_description" style="border: none !important;">
         <div class="bl_description">
         <br>
             <h2>CHI TIẾT SẢN PHẨM</h2>
