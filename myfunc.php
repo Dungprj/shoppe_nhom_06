@@ -200,11 +200,37 @@ function getsoluotlike_binhluan($id_binhluan)
     
 }
 
-
-
-function lay_hinhanhbinhluan($id_binhluan,$id_sp)
+function lay_hinhanhbinhluan_quanly_binhluan($id_binhluan)
 {
-    require "./conect.php";
+    include "conect.php";
+    
+
+    $sql = "SELECT img from tbl_img_binhluan where id_binhluan = $id_binhluan";
+    $result = mysqli_query($conn,$sql);
+
+    $bl_list_img ="";
+    if (mysqli_num_rows($result)>0)
+    {
+        while ($row = mysqli_fetch_assoc($result))
+        {
+        $img_binhluan = "<img style='width:100px;' src=../".$row["img"].">";
+
+
+        $bl_list_img.= $img_binhluan;
+
+        }
+    }
+
+    include "close.php";
+
+    return $bl_list_img;
+
+}
+
+
+function lay_hinhanhbinhluan($id_binhluan)
+{
+    include "conect.php";
     
 
     $sql = "SELECT * from tbl_img_binhluan where id_binhluan = $id_binhluan";
