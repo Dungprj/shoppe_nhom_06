@@ -1,0 +1,322 @@
+.bl_container_binhluan
+{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+ 
+    margin-bottom: 5%;
+    justify-content: space-between;
+    margin-top: 1%;
+}
+.bl_list_binhluan
+{
+    
+}
+
+
+.bl_phantrangbinhluan{
+    height: 30px;
+
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bl_edit_binhluan
+{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 1%;
+}
+.bl_binhluan
+{
+    height: 250px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1%;
+}
+
+.bl_binhluan_left
+{
+    width: 5%;
+    margin-left: 2%;
+  
+
+}
+.bl_binhluan_right
+{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+.avata_binhluan
+{
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    
+}
+.ngay-binhluan_binhluan
+{
+    font-size: 14px;
+}
+
+
+.noidung_binhluan
+{
+    width: 80%;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+}
+.like_and_edit_binhluan
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-like_binhluan
+{
+    font-size: 20px;
+    opacity: 0.8;
+    width: 30%;
+    color: #544f4f;
+    
+}
+.btn-edit_binhluan
+{
+    font-size: 20px;
+    color: #544f4f;
+    
+}
+.bl-anh_binhluan
+{
+    height: 90px;
+    margin-left: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    
+}
+.btn-like_binhluan:hover
+{
+    cursor: pointer;
+}
+.btn-edit_binhluan
+{
+    cursor: pointer;
+
+}
+
+
+.list-img_binhluan
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+}
+.img_binhluan
+{
+    max-width: 100%;
+    height: auto;
+    gap:5px;
+}
+.a_bl_like
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.bl_like
+{
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+.bl_soluotlike
+{
+    width: 20%;
+    font-size: 20px;
+    color: rgb(128, 123, 123);
+}
+
+.liked
+{
+    color: red !important;
+}
+.bl_edit-binhluan
+{
+    position: relative;
+}
+.list-edit_binhluan
+{
+    width: 150px;
+    height: 100px;
+    background-color: #ffffff !important;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    display: none;
+}
+.edit-xoa_binhluan
+{
+    width: 100%;
+    height: 30%;
+    padding-left: 10%;
+    padding-top: 5%;
+}
+.edit-xoa_binhluan:hover
+{
+    background-color: #544f4f;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.opend-edit_binhluan
+{
+    display: flex;
+}
+.edit-report_binhluan
+{
+    width: 100%;
+    height: 30%;
+    padding-left: 10%;
+    padding-top: 5%;
+    
+}
+
+.edit-report_binhluan:hover
+{
+    background-color: #544f4f;
+    color: #ffffff;
+    cursor: pointer;
+}
+.xoa_binhluan
+{
+    display: none;
+}
+
+
+
+
+.avata_nhapbinhluan{
+    width: 5%;
+    margin-left: 2%;
+
+}
+.avata_nhapbinhluan
+{
+    width: 50%;
+    height: auto;
+    border-radius: 50%;
+    
+}
+.bl_container_nhap_binhluan
+{
+    margin-top: 1%;
+    /* height: 200px; */
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+
+}
+.left_nhapbinhluan
+{
+   width: 10%;
+}
+
+.right_nhapbinhluan
+{
+    width: 90%;
+}
+
+.inp_nhapbinhluan
+{
+    width: 100%;
+}
+
+.bl_media_inp_nhapbinhluan
+{
+    font-size: 20px;
+    color: black;
+
+}
+.media_binhluan
+{
+    width: 20%;
+}
+
+.block_send_media_and_text
+{
+    width: 100%;
+    display: flex;
+    height:50px;
+    justify-content:space-between;
+    margin-top: 1%;
+}
+.img_gui_binhluan
+{
+    max-width: 78% !important;
+    font-size: 35px;
+    min-width: 78% !important;
+}
+
+.icon_gui_binhluan
+{
+    max-width: 100%;
+    font-size: 26px;
+}
+.btn_gui_anh_binhluan
+{
+    border: none !important;
+}
+
+
+.btn_gui_binhluan
+{
+    border: none;
+}
+.bl_list_img_guibinhluan
+{
+    width: 60%;
+    /* height: 50px; */
+    height: 0px;
+    display: flex;
+    gap: 10px;
+}
+
+.bl_img_gui_binhluan
+{
+    width: 10%;
+    position: relative;
+    
+}
+.circel_xoa_anh_guibinhluan
+{
+    width: 40%;
+    position: absolute;
+    z-index: 9999;
+    top: 2px;
+    right: 8px;
+    border: transparent !important;
+    background-color: transparent !important;
+
+}
+
+#selectedImagesContainer
+{
+
+}
+
+.trangdachon
+{
+    background-color:bisque;
+}

@@ -28,5 +28,6 @@ if (isset($_SESSION['user_name']) == false) {
         <button><a href="./manage_user.php">Người Dùng</a></button>
         <button><a href="./manage_product.php">Sản Phẩm</a></button>
         <button><a href="./manage_cate.php">Danh Mục</a></button>
+        <button><a href="./manage_binhluan.php">Bình luận</a></button>
     </body>
 </html>
