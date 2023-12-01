@@ -86,6 +86,25 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+
+        .pagination a {
+            text-decoration:none;
+            margin-left: 10px;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+        }
+        .pagination span {
+            border: 1px solid #000;
+            padding: 5px 10px;
+            margin-left: 10px;
+            background-color: #ccc;
+            
+        }           
+    </style>
   </head>
   <body>
     <div class="container">
@@ -188,13 +207,13 @@
               <tbody id="searchresult">
                 <?php
                   $sql = "select * from tbl_product limit " . $start . "," . $limit;
-                  // if(isset($_POST["btn_search"])) {
-                  //   $sql = "select * from tbl_category where catename like '%".$_POST["txt_search"]."%'";
-                  // } 
-                  // else {
-                  //   // include
-                  //   $sql = "select * from tbl_category order by id desc";
-                  // }
+                  if(isset($_POST["btn_search"])) {
+                    $sql = "select * from tbl_product where name like '%".$_POST["txt_search"]."%'";
+                  } 
+                  else {
+                    // include
+                    $sql = "select * from tbl_product order by id desc";
+                  }
 
                   $result = mysqli_query($conn,$sql);
 
@@ -259,32 +278,7 @@
         </div>
       </div>
     </div>
-    
-    
-    <!-- <script>
-      $(document).ready(function() {
-        $("#live_search").keyup(function() {
-          var input = $(this).val();
-          // alert(input);
-
-          if(input != "") {
-            $.ajax({
-              method: "POST",
-              url: "searchajax.php",
-              data:{input:input},
-
-              success:function(data) {
-                $("#searchresult").html(data);
-                $("#searchresult").css("display", "block");
-              }
-            });
-          } else {
-            $("#searchresult").css("display", "none");
-          }
-        });
-      })
-
-    </script> -->
+     
 
   </body>
 </html>
