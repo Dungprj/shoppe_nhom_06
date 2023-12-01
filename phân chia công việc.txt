@@ -3,21 +3,16 @@ Nhóm 06 chọn thiết kế giao diện bán hàng gần giống với Shopee (
 Thành viên nhóm và phân chia công việc:
 
 1. Đinh Tiến Thành
-- Làm phần header, banner, deal, shopee mall
-- Làm phần đăng nhập
-- Làm responsive giao diện, đăng nhập, đăng ký
+- Quản trị cate, product, hiện sản phẩm ra trang chủ, ajax cate 
 
 2. Nguyễn Tiến Dũng
-- Làm phần danh mục, flash sale, product_recommend
-- Làm phần responsive giao diện
+- thông tin tài khoản, giỏ hàng
 
 3. Hoàng Việt Anh
-- Làm phần footer 
+- Đăng ký, đăng nhập, quản trị tài khoản
 
 4. Nguyễn Thị Ngát
-- Làm phần đăng ký
+- Phân trang cate
 
 5. Trần Hải Dương
-- Làm phần hover vào thông báo
-- Làm phần hover vào tải ứng dụng 
-- Có làm phần product_recommend
+- Update product

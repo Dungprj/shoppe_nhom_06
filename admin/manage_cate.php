@@ -81,6 +81,26 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Document</title>
+    <style>
+      h1{
+          text-align: center;
+      }
+
+      .pagination a {
+          text-decoration:none;
+          margin-left: 10px;
+          border: 1px solid #ccc;
+          padding: 5px 10px;
+      }
+      .pagination span {
+          border: 1px solid #000;
+          padding: 5px 10px;
+          margin-left: 10px;
+          background-color: #ccc;
+          
+      }
+            
+    </style>
   </head>
   <body>
     <div class="container">
@@ -202,7 +222,7 @@
           <div class="pagination">
             <?php 
                 if ($current_page > 1 && $total_page > 1){
-                    echo '<a href="manage_cate.php?page='.($current_page-1).'">Truoc</a> | ';
+                    echo '<a id="pre" href="manage_cate.php?page='.($current_page-1).'">Truoc</a> | ';
                 }
                   
                 // Lặp khoảng giữa
@@ -210,10 +230,10 @@
                     // Nếu là trang hiện tại thì hiển thị thẻ span
                     // ngược lại hiển thị thẻ a
                     if ($i == $current_page){
-                        echo '<span>'.$i.'</span> | ';
+                        echo '<span id="current">'.$i.'</span> | ';
                     }
                     else{
-                        echo '<a href="manage_cate.php?page='.$i.'">'.$i.'</a> | ';
+                        echo '<a id="next" href="manage_cate.php?page='.$i.'">'.$i.'</a> | ';
                     }
                 }
                   
@@ -255,6 +275,6 @@
       })
 
     </script>
-
+  
   </body>
 </html>
