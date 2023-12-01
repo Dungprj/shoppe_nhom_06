@@ -261,7 +261,7 @@
     </div>
     
     
-    <script>
+    <!-- <script>
       $(document).ready(function() {
         $("#live_search").keyup(function() {
           var input = $(this).val();
@@ -284,7 +284,7 @@
         });
       })
 
-    </script>
+    </script> -->
 
   </body>
 </html>
