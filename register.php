@@ -1,7 +1,7 @@
-<!-- sql injection -->
-<!-- ma hoa, ipa,token -->
+<!-- sql injection
+ma hoa, ipa,token -->
 
-<?php
+<!-- <?php
     require "./conect.php";
 
     if(isset($_POST["btn_register"])){
@@ -24,7 +24,7 @@
 
             }
             else{
-                $sql_insert = "insert into tbl_user(username,password,email,name,status,admin) values('".$user_name."',md5('".$password."'),'".$email."','".$fullname."',1,0)";
+                $sql_insert = "insert into tbl_user(username,password,email,name,admin) values('".$user_name."',md5('".$password."'),'".$email."','".$fullname."',0)";
                 if (mysqli_query($conn, $sql_insert)){
                     echo " dang ki thanh cong";
                     header("location:login.php");
@@ -37,7 +37,7 @@
         }
     }
 
-?>
+?> -->
 
 
 
@@ -53,7 +53,30 @@
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./css/responsive.css">
+  <script src="./jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script> 
+  
+
+  $(document).ready(function(){
+    $("#txt_username").blur(function(){
+      var name = $(this).val();
+      $.get("./admin/checkUserName.php",{user_name:name},function(data){
+        if ( data ==0 ){
+          $("#LoiUserName").html("Tên người dùng hợp Lệ");
+          $("#LoiUserName").css("color","blue");
+          $
+        }else{
+          $("#LoiUserName").html("Tên người dùng đã được sử dụng");
+          $("#LoiUserName").css("color","red");
+        }
+      });
+    });
+  });
+
+
+  </script>
   <title>Đăng Ký</title>
 </head>
 
@@ -82,33 +105,23 @@
         <h4 style="text-align: center">Đăng Kí</h4>
             <form action="register.php" method="post" >
                 
-                <input type="text" placeholder="Họ và Tên" class="form-control" name="txt_fullname" />
+                <input type="text" placeholder="Họ và Tên" class="form-control" name="txt_fullname" id="txt_fullname" />
                 <br>
-                <input type="text" placeholder="Tên đăng nhập" class="form-control" name="txt_username" />
+                <input type="text" placeholder="Tên đăng nhập" class="form-control" name="txt_username" id="txt_username" />
+                <div id="LoiUserName"></div>
                 <br>
-                <input type="password" placeholder="Mật Khẩu" class="form-control" name="txt_password" />
+                <input type="password" placeholder="Mật Khẩu" class="form-control" name="txt_password" id="txt_password" />
                 <br>
-                <input type="password" placeholder="Nhập lại mật khẩu" class="form-control" name="txt_password_re" />
+                <input type="password" placeholder="Nhập lại mật khẩu" class="form-control" name="txt_password_re" id="txt_password_re" />
                 <br>
-                <input type="text" placeholder="Email" class="form-control" name="txt_email" />
+                <input type="text" placeholder="Email" class="form-control" name="txt_email" id="txt_email" />
                 <br>
-                <input  type="submit" class="form-input__btn btn btn-primary" name="btn_register" value="Đăng Kí" />
+                <input  type="submit" class="form-input__btn btn btn-primary" name="btn_register" id="insert" value="Đăng Kí" />
+
+                <p id= "ketqua"></p>
+                
             </form>
-        <!-- <div class="form-input__social">
-          <div class="form-social__fb">
-            <i class="fa-brands fa-facebook"></i>
-            <span>Facebook</span>
-          </div>
-          <div class="form-social__gg">
-            <i class="fa-brands fa-google"></i>
-            <span>Google</span>
-          </div>
-        </div>
-        <div class="form-des">
-          Bằng việc đăng kí, bạn đã đồng ý với Shopee về <br />
-          <a class="form-des__text" href="#!">Điều Khoản dịch vụ</a> &
-          <a class="form-des__text" href="#!">Chính sách bảo mật</a>
-        </div> -->
+        
         <div class="form-dangnhap">
           Bạn đã có tài khoản?
           <a class="form-des__text" href="./login.php">Đăng nhập</a>

@@ -17,3 +17,11 @@ let thongbao = document.querySelector(".thongbaothemvaogio");
 let btn_themgiohang = document.querySelector(".btn_themgiohang");
 
 
+let btn_like_binhluan = document.querySelectorAll(".btn-like_binhluan");
+let label_like_binhluan = document.querySelectorAll(".bl_soluotlike");
+
+
+
+
+
+

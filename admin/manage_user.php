@@ -84,7 +84,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+    <script src="../jquery-3.7.1.min.js"></script>
     <title>Manage User</title>
+    <script> 
+    $(document).ready(function(){
+    $("#txt_username").blur(function(){
+      var name = $(this).val();
+      $.get("./checkUserName.php",{user_name:name},function(data){
+        if ( data ==0 ){
+          $("#LoiUserName").html("Tên người dùng hợp Lệ");
+          $("#LoiUserName").css("color","blue");
+          $
+        }else{
+          $("#LoiUserName").html("Tên người dùng đã được sử dụng");
+          $("#LoiUserName").css("color","red");
+        }
+      });
+    });
+  });
+  </script> 
   </head>
   <body>
     <div class="container"  >
@@ -94,36 +112,13 @@
       <div class="row" >
       <div class="col-6" style="margin-left: auto;margin-right: auto;" >
           <form action="manage_user.php" method="post" enctype="multipart/form-data">
-            <!-- <?php
-              if(isset($_POST["upload"])) {
-                $target_dir = "../img_user/";
-                $target_file = $target_dir . basename( $_FILES["upload_file"]["name"] );
-                // echo $target_file;
-                $uploadOk = 1;
-                //kiem tra dinh dang cua file upload
-                $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-                if($fileType != "jpg" && $fileType != "png" && $fileType != "jpeg" && $fileType != "gif" ) {
-                  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                  $uploadOk = 0;
-                }
-                if ($uploadOk == 0) {
-                  echo "Sorry, your file was not uploaded.";
-                  // if everything is ok, try to upload file
-                  } 
-                else {
-                  if (move_uploaded_file($_FILES["upload_file"]["tmp_name"], $target_file)) {
-                      echo "<img src='".$target_file."' style='width: 300px;text-align: center;'>";
-                  } 
-                  else {
-                    echo "Sorry, there was an error uploading your file.";
-                  }
-                }
-              }
-            ?> -->
+           
             <br>
             <input type="text" placeholder="Họ và Tên" class="form-control" name="txt_fullname" />
             <br>
-            <input type="text" placeholder="Tên đăng nhập" class="form-control" name="txt_username" />
+            <input type="text" placeholder="Tên đăng nhập" class="form-control" name="txt_username" id="txt_username" />
+            <br>
+            <div id="LoiUserName"></div>
             <br>
             <input type="password" placeholder="Mật Khẩu" class="form-control" name="txt_password" />
             <br>
@@ -154,11 +149,15 @@
         </div>
       </div>
 
+
+      <!-- Search  -->
       <div class="row" style="margin-top: 10px; display: flex;margin-left: 20% ">
         <div class="col-10">
           <form action="manage_user.php" method="post" style="margin-top: 10px; display: flex;">
+
             <input placeholder="Tên Đăng Nhập" class="form-control" type="text" name="txt_search">
             <input class="btn btn-success" type="submit" value="Tìm Kiếm" name="btn_search"></input>
+
           </form>
         </div>
       </div>
