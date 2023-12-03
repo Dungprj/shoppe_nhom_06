@@ -84,7 +84,7 @@
             }
             
             // Tìm Start
-            $start = ($current_page - 1) * $limit;
+            $start = max(0, ($current_page - 1) * $limit);
 
            
           ?>
@@ -113,15 +113,6 @@
                 {
                   $sql = "select * from tbl_binhluan limit " . $start . "," . $limit;
                 }
-                
-                  
-                  // if(isset($_POST["btn_search"])) {
-                    // $sql = "select * from tbl_category where catename like '%".$_POST["txt_search"]."%'";
-                  // } 
-                  // else {
-                  //   // include
-                  //   $sql = "select * from tbl_category order by id desc";
-                  // }
 
                   $result = mysqli_query($conn,$sql);
 
@@ -154,7 +145,7 @@
                     }
                   }else
                   {
-                  echo "no";
+                  echo "Không có dữ liệu";
                   }
 
                 
