@@ -596,7 +596,7 @@ if (isset($_SESSION["user_name"])&&$_SESSION["user_name"])
                 $product_image = $row['image'];
                 echo "
                 <li class='image-carousel__item image-carousel__item_flash_sale'>
-                  <a class='bl_a_item' href='./sanpham.php?idsp=1'>
+                  <a class='bl_a_item' href='./sanpham.php?idsp=$product_id'>
                     <div class='block_item block_item_flash_sale'>
                       <div class='bl_image'>
                         <img class='edit_image edit_image_flash_sale' src='./img_product/$product_image' alt='$product_name' width='100px'>
